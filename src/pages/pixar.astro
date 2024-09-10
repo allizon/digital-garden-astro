@@ -1,62 +1,98 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 ---
 
 <Layout title="The Pixar Project">
   <main>
+    <Breadcrumbs>
+      <a href="/">Home</a>
+    </Breadcrumbs>
     <h1>The Pixar Project</h1>
 
-    <Card title="Schedule">
-      <h2>Schedule</h2>
-    </Card>
+    <h2>Schedule</h2>
+
+    <h2>The Agenda</h2>
+    <ul>
+      <li>Toy Story (1995)</li>
+      <li>A Bug's Life (1998)</li>
+      <li>Toy Story 2 (1999)</li>
+      <li>Monsters Inc. (2001)</li>
+      <li>Finding Nemo (2003)</li>
+      <li>The Incredibles (2004)</li>
+      <li>Cars (2006)</li>
+      <li>Ratatouille (2007)</li>
+      <li>WALL-E (2008)</li>
+      <li>Up (2009)</li>
+      <li>Toy Story 3 (2010)</li>
+      <li>Cars 2 (2011)</li>
+      <li>Brave (2012)</li>
+      <li>Monsters University (2013)</li>
+      <li>Inside Out (2015)</li>
+      <li>The Good Dinosaur (2015)</li>
+      <li>Finding Dory (2016)</li>
+      <li>Cars 3 (2017)</li>
+      <li>Coco (2017)</li>
+      <li>The Incredibles 2 (2018)</li>
+      <li>Toy Story 4 (2019)</li>
+      <li>Onward (2020)</li>
+      <li>Soul (2020)</li>
+      <li>Luca (2021)</li>
+      <li>Turning Red (2022)</li>
+      <li>Lightyear (2022)</li>
+      <li>Elemental (2023)</li>
+      <li>Inside Out 2 (2024)</li>
+    </ul>
   </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
 
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
 
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
+  .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
 
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
 
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
 
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 2rem;
+    padding: 0;
+  }
 </style>

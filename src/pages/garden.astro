@@ -1,16 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 ---
 
-<Layout title="The Pixar Project">
+<Layout title="Digital Garden">
   <main>
+    <Breadcrumbs>
+      <a href="/">Home</a>
+    </Breadcrumbs>
+
     <h1>Digital Garden</h1>
+
     <p style="text-align: center;">
       I'm still working on this. Coming soon, once I figure out what
       I'm doing here.
     </p>
+
     <h2>Things to Learn</h2>
+
     <ul>
       <li><a href="https://docs.astro.build/en/guides/routing/">Routing</a></li>
       <li><a href="https://docs.astro.build/en/guides/content-collections/">Content Collection</a></li>

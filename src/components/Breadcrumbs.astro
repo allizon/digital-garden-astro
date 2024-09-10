@@ -1,0 +1,29 @@
+---
+interface Props {
+	body?: string;
+}
+
+// Don't actually need this, it's what `<slot />` is for
+const { body } = Astro.props;
+---
+
+<div class="breadcrumbs">
+  <slot />
+</div>
+
+<style>
+  .breadcrumbs {
+    color: white;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    font-size: 0.9rem;
+
+    a {
+      color: rgb(var(--accent-light));
+
+      &:hover {
+        color: rgb(var(--accent-dark));
+      }
+    }
+  }
+</style>
