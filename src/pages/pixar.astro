@@ -12,6 +12,17 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 
     <h2>Schedule</h2>
 
+    <div class="schedule">
+      <span class="header">Publish Date</span>
+      <span class="header">Movie</span>
+
+      <span class="date">2024-09-15</span>
+      <span class="flick">Introduction</span>
+
+      <span class="date">2024-09-22</span>
+      <span class="flick"><a>Toy Story</a> (1995)</span>
+    </div>
+
     <h2>The Agenda</h2>
     <ul>
       <li>Toy Story (1995)</li>
@@ -63,6 +74,31 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
     line-height: 1;
     text-align: center;
     margin-bottom: 1em;
+  }
+
+  .schedule {
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+
+    span {
+      padding-block: 0.25rem;
+    }
+
+    .header {
+      font-weight: 700;
+      border-bottom: 1px solid white;
+      padding-block: 0.5rem;
+      margin-block-end: 0.5rem;
+    }
+
+    .date {
+    }
+
+    .flick {
+      &:has(a) {
+        color: green;
+      }
+    }
   }
 
   .instructions {
