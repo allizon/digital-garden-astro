@@ -1,5 +1,11 @@
 ---
+/**
+ * This component is for rendering a single article inside an `ArticleList`
+ * component. For the actual sngle article page, see pages/articles/[slug].astro
+ */
+
 import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 
 type Props = {
   article: CollectionEntry<"articles">;
@@ -9,6 +15,7 @@ const { article } = Astro.props;
 ---
 
 <div>
-  <h1>article</h1>
+  <h2><a href=`articles/${article.slug}`>article {article.slug}</a></h2>
+  <!-- image, should be in this local directory -->
   {article.body}
 </div>
