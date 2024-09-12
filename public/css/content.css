@@ -1,4 +1,6 @@
 .content {
+  color: white;
+
   p {
     margin-block-end: 1rem;
   }

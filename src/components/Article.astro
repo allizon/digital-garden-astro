@@ -14,10 +14,29 @@ type Props = {
 const { article } = Astro.props;
 ---
 
-<div>
-  <h2><a href=`/articles/${article.slug}`>article {article.slug}</a></h2>
+<div class="article">
+  <div class="title"><a href=`/articles/${article.slug}`>{article.data.title}</a></div>
   <!-- image, should be in this local directory -->
-  <div class="leading-loose line-clamp-2">
-    {article.body}
+  <div class="subhead">
+    {article.data.subhead}
   </div>
 </div>
+
+<style>
+  .article {
+    .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+
+      a {
+        color: orchid;
+        text-decoration: none;
+
+        &:hover {
+          color: lavender;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+</style>

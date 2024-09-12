@@ -1,6 +1,7 @@
 ---
 date: "2024-09-11"
 title: This is a Post
+subhead: Let's use this instead.
 slug: test-post
 ---
 
@@ -24,4 +25,3 @@ something in Obsidian...?
   - I'm guessing that I set it up with Netlify DNS, though damned if I can
     find out what to do with it now. Not that I need to, I guess, as long
     as it's working correctly?
-

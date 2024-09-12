@@ -11,7 +11,8 @@ const articleCollection = defineCollection({
   type: "content",
   schema: z.object({
     date: z.string(),
-    title: z.string()
+    title: z.string(),
+    subhead: z.string(),
   }),
 });
 
