@@ -1,0 +1,10 @@
+.content {
+  p {
+    margin-block-end: 1rem;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-inline-start: 1rem;
+  }
+}

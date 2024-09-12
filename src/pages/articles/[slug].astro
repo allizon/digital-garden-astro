@@ -29,35 +29,9 @@ const { Content } = await article.render();
 
 <Layout title="Articles Collection">
   <main>
-    <h2 class="text-3xl font-bold mb-8">{article.data.title}</h2>
-    <div class="leading-loose list-disc">
-      <Prose>
-        <Content />
-      </Prose>
+    <h2 class="">{article.data.title}</h2>
+    <div class="content leading-loose list-disc">
+      <Content />
     </div>
   </main>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-
-  ul {
-    list-style-type: disc;
-  }
-</style>

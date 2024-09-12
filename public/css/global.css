@@ -1,0 +1,25 @@
+h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  text-align: left;
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+  text-align: left;
+  margin-block: 1em;
+}
+
+main {
+  margin: auto;
+  padding: 1rem;
+  width: 800px;
+  max-width: calc(100% - 2rem);
+  color: white;
+  font-size: 20px;
+  line-height: 1.6;
+}

@@ -1,12 +1,35 @@
----
-const LINK_STYLES = "hover:text-white hover:underline";
----
-
-<header class="bg-violet-500 p-3 grid grid-cols-2 gap-4">
-  <div><a href="/" class={LINK_STYLES}>allizon.io</a></div>
-  <div class="justify-self-end">
-    <a href="/articles" class={LINK_STYLES}>Articles</a> |
-    <a href="/garden" class={LINK_STYLES}>Digital Garden</a> |
-    <a href="/pixar" class={LINK_STYLES}>Pixar Project</a>
+<header>
+  <div class="home"><a href="/">allizon.io</a></div>
+  <div class="links">
+    <a href="/articles">Articles</a> |
+    <a href="/garden">Digital Garden</a> |
+    <a href="/pixar">Pixar Project</a>
   </div>
 </header>
+
+<style>
+  header {
+    background-color: darkorchid;
+    padding: 1rem;
+    display: grid;
+    gap: 0.25rem;
+    grid-template-columns: 1fr 1fr;
+
+    .home {
+      font-weight: 900;
+      letter-spacing: 0.1rem;
+    }
+
+    .links {
+      justify-self: end;
+    }
+  }
+
+  a {
+    color: white;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+</style>
