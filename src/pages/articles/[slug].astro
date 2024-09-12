@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Prose from "../../components/Prose.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export const getStaticPaths = async () => {
@@ -27,8 +28,13 @@ const { Content } = await article.render();
 ---
 
 <Layout title="Articles Collection">
-  <main class="leading-loose list-disc">
-    <Content />
+  <main>
+    <h2 class="text-3xl font-bold mb-8">{article.data.title}</h2>
+    <div class="leading-loose list-disc">
+      <Prose>
+        <Content />
+      </Prose>
+    </div>
   </main>
 </Layout>
 

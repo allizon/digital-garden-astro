@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
 import ArticleList from "../components/ArticleList.astro";
 
@@ -9,9 +8,6 @@ const articles = await getCollection("articles");
 
 <Layout title="Articles Collection">
   <main>
-    <Breadcrumbs>
-      <a href="/">Home</a>
-    </Breadcrumbs>
     <h1>Articles Collection</h1>
     <ArticleList articles={articles} />
   </main>
