@@ -15,7 +15,9 @@ const { article } = Astro.props;
 ---
 
 <div>
-  <h2><a href=`articles/${article.slug}`>article {article.slug}</a></h2>
+  <h2><a href=`/articles/${article.slug}`>article {article.slug}</a></h2>
   <!-- image, should be in this local directory -->
-  {article.body}
+  <div class="leading-loose line-clamp-2">
+    {article.body}
+  </div>
 </div>

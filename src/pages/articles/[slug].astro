@@ -1,6 +1,5 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export const getStaticPaths = async () => {
@@ -28,12 +27,7 @@ const { Content } = await article.render();
 ---
 
 <Layout title="Articles Collection">
-  <main>
-    <Breadcrumbs>
-      <a href="/">Home</a>
-      &gt;&gt;
-      <a href="/articles">Articles</a>
-    </Breadcrumbs>
+  <main class="leading-loose list-disc">
     <Content />
   </main>
 </Layout>
@@ -55,5 +49,9 @@ const { Content } = await article.render();
     line-height: 1;
     text-align: center;
     margin-bottom: 1em;
+  }
+
+  ul {
+    list-style-type: disc;
   }
 </style>
