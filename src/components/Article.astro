@@ -1,0 +1,14 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  article: CollectionEntry<"articles">;
+};
+
+const { article } = Astro.props;
+---
+
+<div>
+  <h1>article</h1>
+  {article.body}
+</div>
