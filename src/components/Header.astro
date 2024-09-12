@@ -1,12 +1,12 @@
 ---
-
+const LINK_STYLES = "hover:text-white hover:underline";
 ---
 
 <header class="bg-violet-500 p-3 grid grid-cols-2 gap-4">
-  <div><a href="/">allizon.io</a></div>
+  <div><a href="/" class={LINK_STYLES}>allizon.io</a></div>
   <div class="justify-self-end">
-    <a href="/articles">Articles</a> |
-    <a href="/garden">Digital Garden</a> |
-    <a href="/pixar">Pixar Project</a>
+    <a href="/articles" class={LINK_STYLES}>Articles</a> |
+    <a href="/garden" class={LINK_STYLES}>Digital Garden</a> |
+    <a href="/pixar" class={LINK_STYLES}>Pixar Project</a>
   </div>
 </header>
