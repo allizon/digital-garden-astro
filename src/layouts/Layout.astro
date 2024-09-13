@@ -37,7 +37,12 @@ const { title } = Astro.props;
     <Header />
 
     <div class="wip">
-      <b>WORK IN PROGRESS!</b> Like, seriously, <i>everything</i> is still being sussed out.
+      <span>
+        <img src="/img/under-construction.gif" width="48" />
+      </span>
+      <span>
+        <b>WORK IN PROGRESS!</b> Like, seriously, <i>everything</i> is still being sussed out.
+      </span>
     </div>
 
     <slot />
@@ -53,6 +58,9 @@ const { title } = Astro.props;
       border: 1px solid var(--primary-color);
       border-radius: 1rem;
       background-color: color-mix(in srgb, var(--primary-color), transparent 70%); /* remember this!! */
+      display: flex;
+      flex-direction: row;
+      flex: 1;
 
       b {
         color: darkorchid;
