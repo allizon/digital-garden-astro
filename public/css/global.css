@@ -1,5 +1,27 @@
+:root {
+  --accent: 136, 58, 234;
+  --accent-light: 224, 204, 250;
+  --accent-dark: 49, 10, 101;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    rgb(var(--accent-light)) 30%,
+    white 60%
+  );
+
+  --primary-color: darkorchid;
+}
+
 body {
   margin: 0;
+}
+
+html {
+  font-family:
+    Noto Sans,
+    system-ui,
+    sans-serif;
+  background: #13151a;
 }
 
 h1 {
@@ -26,4 +48,16 @@ main {
   color: white;
   font-size: 20px;
   line-height: 1.6;
+}
+
+code {
+  font-family:
+    Menlo,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New,
+    monospace;
 }
