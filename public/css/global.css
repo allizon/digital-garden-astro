@@ -61,3 +61,11 @@ code {
     Courier New,
     monospace;
 }
+
+.footnotes {
+  font-size: 0.8rem;
+
+  h2 {
+    font-size: 1rem;
+  }
+}
