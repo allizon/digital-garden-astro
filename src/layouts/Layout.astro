@@ -1,7 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
-import Prose from "../components/Prose.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -46,6 +46,8 @@ const { title } = Astro.props;
     </div>
 
     <slot />
+
+    <Footer />
   </body>
 
   <style is:global>
