@@ -42,16 +42,6 @@ h2 {
   margin-block: 1em;
 }
 
-main {
-  margin: auto;
-  padding: 1rem;
-  width: 800px;
-  max-width: calc(100% - 2rem);
-  color: white;
-  font-size: 20px;
-  line-height: 1.6;
-}
-
 a {
   color: var(--primary-color);
   transition: all 400ms;
@@ -71,6 +61,16 @@ code {
     Bitstream Vera Sans Mono,
     Courier New,
     monospace;
+}
+
+main {
+  margin: auto;
+  padding: 1rem;
+  width: 800px;
+  max-width: calc(100% - 2rem);
+  color: white;
+  font-size: 20px;
+  line-height: 1.6;
 }
 
 .footnotes {

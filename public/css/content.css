@@ -1,12 +1,14 @@
 .content {
+  display: flex;
+  flex-direction: column;
   color: white;
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   p {
@@ -38,5 +40,13 @@
       font-size: 0.9rem;
       font-weight: 300;
     }
+  }
+
+  .callout {
+    width: calc(100% - 3rem * 2);
+    align-self: center;
+    padding: 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
   }
 }

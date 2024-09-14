@@ -9,6 +9,6 @@ type Props = {
 const { articles } = Astro.props;
 ---
 
-<div>
+<div class="article-list">
   {articles.map((article) => <Article article={article} />)}
 </div>

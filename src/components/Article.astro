@@ -18,12 +18,14 @@ const { article } = Astro.props;
   <div class="title"><a href=`/articles/${article.slug}`>{article.data.title}</a></div>
   <!-- image, should be in this local directory -->
   <div class="subhead">
-    {article.data.subhead}
+    {article.data.subhead} ({article.data.date})
   </div>
 </div>
 
 <style>
   .article {
+    margin-block-end: 2rem;
+
     .title {
       font-size: 1.5rem;
       font-weight: bold;
@@ -37,6 +39,11 @@ const { article } = Astro.props;
           text-decoration: underline;
         }
       }
+    }
+
+    .subhead {
+      font-size: 1rem;
+      padding-inline-start: 2rem;
     }
   }
 </style>

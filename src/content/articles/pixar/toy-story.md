@@ -18,6 +18,9 @@ was...kinda hard, in a way. The voices were uniformly excellent[^1], of course,
 and the script zips right along -- the whole movie clocks in at less than an
 hour-and-a-half. It's still hilarious and entertaining as hell.
 
+<p class="callout"> this would be in a callout, yes, with the meta info about
+the cast and stuff? and it doesn't get too big, does it? </p>
+
 But it's impossible to watch now with the same amazement I felt in 1995.
 I mean, _of course_, right? The fact is that no one had done anything like that
 before, made an _entire feature_ using computer animation, and it truly felt
