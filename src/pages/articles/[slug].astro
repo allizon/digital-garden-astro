@@ -29,6 +29,13 @@ const { Content } = await article.render();
 <Layout title={article.data.title}>
   <main>
     <div class="content">
+      <div class="header">
+        <span class="title">{article.data.title}</span>
+        <span class="subhead">{article.data.subhead}</span>
+        <span class="date">{article.data.date}</span>
+      </div>
+
+      <!-- this `Content` is the rendered markdown from the page -->
       <Content />
     </div>
   </main>

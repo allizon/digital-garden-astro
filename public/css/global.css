@@ -52,6 +52,15 @@ main {
   line-height: 1.6;
 }
 
+a {
+  color: var(--primary-color);
+  transition: all 400ms;
+
+  &:hover {
+    color: var(--primary-color-light);
+  }
+}
+
 code {
   font-family:
     Menlo,

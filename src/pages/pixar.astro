@@ -9,14 +9,20 @@ import Layout from "../layouts/Layout.astro";
     <h2>Schedule</h2>
 
     <div class="schedule">
-      <span class="header">Publish Date</span>
-      <span class="header">Movie</span>
+      <div class="row header">
+        <span class="date">Publish Date</span>
+        <span class="flick">Movie</span>
+      </div>
 
-      <span class="date">2024-09-15</span>
-      <span class="flick">Introduction</span>
+      <div class="row">
+        <span class="date">2024-09-15</span>
+        <span class="flick">Introduction</span>
+      </div>
 
-      <span class="date">2024-09-22</span>
-      <span class="flick"><a>Toy Story</a> (1995)</span>
+      <div class="row">
+        <span class="date">2024-09-22</span>
+        <span class="flick"><a href="/articles/toy-story">Toy Story</a> (1995)</span>
+      </div>
     </div>
 
     <h2>The Agenda</h2>
@@ -66,27 +72,39 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .schedule {
-    display: grid;
-    grid-template-columns: 0.3fr 0.7fr;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 
-    span {
-      padding-block: 0.25rem;
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      padding: 0.25rem 0.5rem;
+
+      .date {
+        width: 25%;
+      }
+
+      .flick {
+        width: 75%;
+
+        /*&:has(a) {*/
+        /*  color: green;*/
+        /*}*/
+      }
+
+      &:nth-child(even) {
+        background-color: var(--primary-color-dark);
+      }
     }
 
     .header {
       font-weight: 700;
-      border-bottom: 1px solid white;
-      padding-block: 0.5rem;
-      margin-block-end: 0.5rem;
     }
 
-    .date {
-    }
-
-    .flick {
-      &:has(a) {
-        color: green;
-      }
+    span {
+      padding-block: 0.25rem;
     }
   }
 </style>
