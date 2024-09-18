@@ -1,7 +1,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  color: white;
+  color: #ddd;
 
   h2 {
     font-size: 1.5rem;
@@ -13,6 +13,11 @@
 
   p {
     margin-block-end: 1rem;
+    line-height: 2.5rem;
+
+    sup {
+      font-size: 60%;
+    }
   }
 
   ul {
@@ -43,7 +48,8 @@
   }
 
   .callout {
-    width: calc(100% - 3rem * 2);
+    float: right;
+    width: calc(50% - 3rem * 2);
     align-self: center;
     padding: 1rem;
     border: 1px solid var(--primary-color);
