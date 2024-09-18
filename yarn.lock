@@ -143,13 +143,13 @@
     "@vitejs/plugin-react" "^4.3.1"
     ultrahtml "^1.5.3"
 
-"@astrojs/tailwind@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.npmjs.org/@astrojs/tailwind/-/tailwind-5.1.0.tgz"
-  integrity sha512-BJoCDKuWhU9FT2qYg+fr6Nfb3qP4ShtyjXGHKA/4mHN94z7BGcmauQK23iy+YH5qWvTnhqkd6mQPQ1yTZTe9Ig==
+"@astrojs/tailwind@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.npmjs.org/@astrojs/tailwind/-/tailwind-5.1.1.tgz"
+  integrity sha512-LwurA10uIKcGRxQP2R81RvAnBT0WPKzBntXZBF4hrAefDgM5Uumn0nsGr6tdIjSARgYz4X+Cq/Vh78t3bql3yw==
   dependencies:
-    autoprefixer "^10.4.15"
-    postcss "^8.4.28"
+    autoprefixer "^10.4.20"
+    postcss "^8.4.45"
     postcss-load-config "^4.0.2"
 
 "@astrojs/telemetry@^2.1.1":
@@ -989,7 +989,7 @@ astro@^2.5.0:
     yargs-parser "^21.1.1"
     zod "^3.20.6"
 
-"astro@^3.0.0 || ^4.0.0", astro@^4.15.4:
+"astro@^3.0.0 || ^4.0.0 || ^5.0.0-beta.0", astro@^4.15.4:
   version "4.15.4"
   resolved "https://registry.npmjs.org/astro/-/astro-4.15.4.tgz"
   integrity sha512-wqy+m3qygt9DmCSqMsckxyK4ccCUFtti2d/WlLkEpAlqHgyDIg20zRTLHO2v/H4YeSlJ8sAcN0RW2FhOeYbINg==
@@ -1063,7 +1063,7 @@ astro@^2.5.0:
   optionalDependencies:
     sharp "^0.33.3"
 
-autoprefixer@^10.4.15:
+autoprefixer@^10.4.20:
   version "10.4.20"
   resolved "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.20.tgz"
   integrity sha512-XY25y5xSv/wEoqzDyXXME4AFfkZI0P23z6Fs3YgymDnKJkCGOnkL0iTxCa85UTqaSgfcqyf3UA6+c7wUvx/16g==
@@ -3952,7 +3952,7 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.2.0:
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@^8.0.0, postcss@^8.1.0, postcss@^8.2.14, postcss@^8.4.21, postcss@^8.4.23, postcss@^8.4.27, postcss@^8.4.28, postcss@^8.4.43, postcss@>=8.0.9:
+postcss@^8.0.0, postcss@^8.1.0, postcss@^8.2.14, postcss@^8.4.21, postcss@^8.4.23, postcss@^8.4.27, postcss@^8.4.43, postcss@^8.4.45, postcss@>=8.0.9:
   version "8.4.45"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.45.tgz"
   integrity sha512-7KTLTdzdZZYscUc65XmjFiB73vBhBfbPztCYdUNvlaso9PrzjzcmjqBPR0lNGkcVlcO4BjiO5rK/qNz+XAen1Q==
@@ -4746,10 +4746,10 @@ synckit@^0.8.4:
     "@pkgr/core" "^0.1.0"
     tslib "^2.6.2"
 
-tailwindcss@^3.0.24, tailwindcss@^3.4.11, "tailwindcss@>=3.0.0 || insiders || >=4.0.0-alpha.20":
-  version "3.4.11"
-  resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.11.tgz"
-  integrity sha512-qhEuBcLemjSJk5ajccN9xJFtM/h0AVCPaA6C92jNP+M2J8kX+eMJHI7R2HFKUvvAsMpcfLILMCFYSeDwpMmlUg==
+tailwindcss@^3.0.24, tailwindcss@^3.4.12, "tailwindcss@>=3.0.0 || insiders || >=4.0.0-alpha.20":
+  version "3.4.12"
+  resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.12.tgz"
+  integrity sha512-Htf/gHj2+soPb9UayUNci/Ja3d8pTmu9ONTfh4QY8r3MATTZOzmv6UYWF7ZwikEIC8okpfqmGqrmDehua8mF8w==
   dependencies:
     "@alloc/quick-lru" "^5.2.0"
     arg "^5.0.2"
