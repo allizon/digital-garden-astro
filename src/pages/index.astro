@@ -5,12 +5,16 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 
 import ReactComponent from "../components/ReactComponent.jsx";
+import { Button } from "@/components/ui/button";
 ---
 
 <Layout title="Welcome to Allizon.io, my Digital Garden.">
   <main>
     <h1 class="m-16 underline text-red-500">Allizon.io</h1>
+
     <ReactComponent testProp={24}>and a test here</ReactComponent>
+      <Button className="text-red-500 my-8">Hi there</Button>
+
     <ul role="list" class="link-card-grid">
       <Card
         href="pixar"
