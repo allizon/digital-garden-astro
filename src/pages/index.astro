@@ -8,10 +8,9 @@ import { Button } from "@/components/ui/button";
 
 <Layout title="Welcome to Allizon.io, my Digital Garden.">
   <main>
-    <h1 class="m-16 underline text-red-500">Allizon.io</h1>
+    <h1 class="m-16">Allizon.io</h1>
 
-    <ReactComponent testProp={24}>and a test here</ReactComponent>
-      <Button className="text-red-500 my-8">Hi there</Button>
+    <ReactComponent client:only>client:load?</ReactComponent>
 
     <ul role="list" class="link-card-grid">
       <Card
