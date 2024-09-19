@@ -1,16 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-
-import ReactComponent from "../components/ReactComponent.jsx";
-import { Button } from "@/components/ui/button";
 ---
 
 <Layout title="Welcome to Allizon.io, my Digital Garden.">
   <main>
     <h1 class="m-16">Allizon.io</h1>
-
-    <ReactComponent client:only>client:load?</ReactComponent>
 
     <ul role="list" class="link-card-grid">
       <Card
@@ -33,15 +28,6 @@ import { Button } from "@/components/ui/button";
 </Layout>
 
 <style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
 
   h1 {
     font-size: 4rem;

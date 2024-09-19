@@ -17,20 +17,12 @@ export function SwitchDemo() {
 }
 
 export default function ({ testProp, children }) {
-  console.log(window.location.href);
   const isDev = window.location.href.includes("localhost");
+  if (!isDev) return <></>;
 
   return (
-    <>
-      <div>
-        this is a <b>react</b> component {testProp}
-        <br />
-        {isDev ? "DEV ENV" : ""}
-      </div>
-      <div className="flex items-center space-x-2">
-        <Switch id="airplane-mode" />
-        <Label htmlFor="airplane-mode">Airplane Mode</Label>
-      </div>
-    </>
+    <div className="grid justify-end py-2 px-4 bg-amber-300 text-zinc-800 font-bold">
+      DEV ENVIRONMENT
+    </div>
   );
 }

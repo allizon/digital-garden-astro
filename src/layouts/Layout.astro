@@ -4,6 +4,7 @@ import "../globals.css";
 import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import EnvironmentCheck from "../components/EnvironmentCheck.jsx";
 
 interface Props {
   title: string;
@@ -36,6 +37,8 @@ const { title } = Astro.props;
   </head>
 
   <body class="dark">
+    <EnvironmentCheck client:only>client:load?</EnvironmentCheck>
+
     <Header />
 
     <div class="wip">
