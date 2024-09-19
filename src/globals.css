@@ -146,3 +146,13 @@
     }
   }
 }
+
+.dev-env {
+  background: repeating-linear-gradient(
+    45deg,
+    rgb(252 211 77),
+    rgb(252 211 77) 10px,
+    rgb(254 158 11) 10px,
+    rgb(254 158 11) 20px
+  );
+}

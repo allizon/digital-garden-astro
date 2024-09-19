@@ -21,7 +21,7 @@ export default function ({ testProp, children }) {
   if (!isDev) return <></>;
 
   return (
-    <div className="grid justify-end py-2 px-4 bg-amber-300 text-zinc-800 font-bold">
+    <div className="dev-env grid justify-end py-2 px-4 text-zinc-800 font-black">
       DEV ENVIRONMENT
     </div>
   );
