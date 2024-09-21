@@ -35,7 +35,9 @@ const { Content } = await article.render();
         <span class="date">{article.data.date}</span>
       </div>
 
-      <Content /><!-- rendered markdown from the page -->
+      <div class="prose dark:prose-invert">
+        <Content /><!-- rendered markdown from the page -->
+      </div>
     </div>
   </main>
 </Layout>

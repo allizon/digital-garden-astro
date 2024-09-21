@@ -84,10 +84,7 @@
   }
 
   html {
-    font-family:
-      Noto Sans,
-      system-ui,
-      sans-serif;
+    font-family: ui-sans-serif, system-ui, sans-serif;
     background: #13151a;
   }
 
