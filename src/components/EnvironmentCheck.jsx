@@ -7,6 +7,7 @@
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 
+// This is just an example
 const showLog = (value) => {
   console.log(`switch toggled: ${value}`);
 };
@@ -26,8 +27,7 @@ export default function ({ testProp, children }) {
 
   return (
     <div className="dev-env grid justify-end py-2 px-4 text-zinc-800 font-black">
-      <Switch onCheckedChange={showLog} />
-      <Label>DEV ENVIRONMENT</Label>
+      DEV ENVIRONMENT
     </div>
   );
 }

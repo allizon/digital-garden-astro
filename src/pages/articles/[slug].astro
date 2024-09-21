@@ -27,17 +27,20 @@ const { Content } = await article.render();
 ---
 
 <Layout title={article.data.title}>
-  <main>
-    <div class="content">
-      <div class="header">
-        <span class="title">{article.data.title}</span>
-        <span class="subhead">{article.data.subhead}</span>
-        <span class="date">{article.data.date}</span>
-      </div>
+  <div class="m-auto flex w-8/12 flex-row align-top">
+    <main class="w-3/4 flex-none">
+      <div class="content">
+        <div class="header">
+          <span class="title">{article.data.title}</span>
+          <span class="subhead">{article.data.subhead}</span>
+          <span class="date">{article.data.date}</span>
+        </div>
 
-      <div class="prose dark:prose-invert">
-        <Content /><!-- rendered markdown from the page -->
+        <div class="prose dark:prose-invert">
+          <Content /><!-- rendered markdown from the page -->
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
+    <sidebar class="w-24 flex-1 justify-self-start p-6">sidebar</sidebar>
+  </div>
 </Layout>

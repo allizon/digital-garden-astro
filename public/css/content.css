@@ -48,11 +48,21 @@
   }
 
   .callout {
-    float: right;
     width: calc(50% - 3rem * 2);
     align-self: center;
     padding: 1rem;
+    margin: 0.25rem 1rem;
     border: 1px solid var(--primary-color);
     border-radius: 1rem;
+
+    &.left {
+      margin-inline-start: 0;
+      float: left;
+    }
+
+    &.right {
+      margin-inline-end: 0;
+      float: right;
+    }
   }
 }
