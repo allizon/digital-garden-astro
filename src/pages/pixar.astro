@@ -1,12 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { DropdownMenu } from "@/components/ui/dropdown-menu";
 ---
 
 <Layout title="The Pixar Project">
   <main>
-    <h1 class="mt-2 mb-0 pb-0">The Pixar Project</h1>
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <DropdownMenu />
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
 
-    <h2 class="mt-8 mb-4">Schedule</h2>
+    <h1 class="mb-0 mt-2 pb-0">The Pixar Project</h1>
+
+    <h2 class="mb-4 mt-8">Schedule</h2>
 
     <div class="schedule">
       <div class="row header">
@@ -27,9 +47,9 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
 
-    <h2 class="mt-8 mb-4">The Agenda</h2>
+    <h2 class="mb-4 mt-8">The Agenda</h2>
 
-    <ul class="list-disc ml-16">
+    <ul class="ml-16 list-disc">
       <li><a href="/articles/toy-story">Toy Story (1995)</a></li>
       <li>A Bug's Life (1998)</li>
       <li>Toy Story 2 (1999)</li>

@@ -1,6 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { DropdownMenu } from "@/components/ui/dropdown-menu";
 
 export const getStaticPaths = async () => {
   const articles = await getCollection("articles");
@@ -29,6 +37,21 @@ const { Content } = await article.render();
 <Layout title={article.data.title}>
   <div class="m-auto flex w-8/12 flex-row align-top">
     <main class="w-3/4 flex-none">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/pixar">The Pixar Project</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <DropdownMenu />
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
       <div class="content">
         <div class="header">
           <span class="title">{article.data.title}</span>

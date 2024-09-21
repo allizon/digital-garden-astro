@@ -1,68 +1,47 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Layout from "../layouts/Layout.astro";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { DropdownMenu } from "@/components/ui/dropdown-menu";
 ---
 
 <Layout title="Digital Garden">
   <main>
-    <Breadcrumbs>
-      <a href="/">Home</a>
-    </Breadcrumbs>
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <DropdownMenu />
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
 
     <h1>Digital Garden</h1>
 
     <p style="text-align: center;">
-      I'm still working on this. Coming soon, once I figure out what
-      I'm doing here.
+      I'm still working on this. Coming soon, once I figure out what I'm doing
+      here.
     </p>
 
     <h2>Things to Learn</h2>
 
     <ul>
-      <li><a href="https://docs.astro.build/en/guides/routing/">Routing</a></li>
-      <li><a href="https://docs.astro.build/en/guides/content-collections/">Content Collection</a></li>
+      <li>
+        <a href="https://docs.astro.build/en/guides/routing/">Routing</a>
+      </li>
+      <li>
+        <a href="https://docs.astro.build/en/guides/content-collections/">
+          Content Collection
+        </a>
+      </li>
     </ul>
   </main>
 </Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-</style>
