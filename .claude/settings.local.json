@@ -12,7 +12,8 @@
       "Bash(curl -s http://localhost:4322)",
       "Bash(pkill -f \"astro dev\" sleep 2 ps aux)",
       "Bash(grep:*)",
-      "Bash(xmllint --format dist/rss.xml)"
+      "Bash(xmllint --format dist/rss.xml)",
+      "Bash(yarn add:*)"
     ]
   }
 }
