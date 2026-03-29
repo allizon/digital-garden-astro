@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npm install:*)",
+      "Bash(npx astro:*)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:docs.astro.build)",
+      "Bash(git:*)",
+      "Bash(node:*)",
+      "Bash(curl -s http://localhost:4322)",
+      "Bash(pkill -f \"astro dev\" sleep 2 ps aux)",
+      "Bash(grep:*)",
+      "Bash(xmllint --format dist/rss.xml)"
+    ]
+  }
+}

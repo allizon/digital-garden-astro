@@ -1,74 +1,30 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import PostCard from '../components/PostCard.astro';
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const posts = allPosts.slice(0, 10);
+const hasMore = allPosts.length > 10;
 ---
 
-<Layout title="Welcome to Allizon.io, my Digital Garden.">
-  <main>
-    <h1 class="mt-2 mb-0 pb-0">Allizon.io</h1>
-    <div class="mb-8 italic font-bold">Being a compendium of words and images perpetuated by Allison J. Holt</div>
-
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="pixar"
-        title="The Pixar Project"
-        body="My grand plan to re-watch and write about the entire Pixar feature catalog."
+<Layout>
+  <div class="post-list">
+    {posts.map(post => (
+      <PostCard
+        id={post.id}
+        title={post.data.title}
+        date={post.data.date}
+        description={post.data.description}
+        tags={post.data.tags}
       />
-      <Card
-        href="articles"
-        title="Articles"
-        body="Articles, blog posts, whatever. Loose content here."
-      />
-      <Card
-        href="garden"
-        title="Digital Garden"
-        body="My attempt to finally show my work and learn in public. "
-      />
-    </ul>
-  </main>
+    ))}
+  </div>
+  {hasMore && (
+    <p style="margin-top: 2rem;">
+      <a href="/archive">View all posts →</a>
+    </p>
+  )}
 </Layout>
-
-<style>
-
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-
-  footer {
-    color: white;
-    line-height: 1;
-    text-align: center;
-  }
-
-  .instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(
-      rgba(var(--accent-dark), 66%),
-      rgba(var(--accent-dark), 33%)
-    );
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-  .instructions code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-  }
-  .instructions strong {
-    color: rgb(var(--accent-light));
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 2rem;
-    padding: 0;
-  }
-</style>

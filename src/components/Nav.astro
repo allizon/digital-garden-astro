@@ -1,0 +1,82 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => {
+  if (href === '/') return pathname === '/';
+  return pathname === href || pathname.startsWith(href + '/');
+};
+const navLinks = [
+  { href: '/archive', label: 'Archive' },
+  { href: '/tags', label: 'Tags' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header>
+  <div class="page-container nav-inner">
+    <a href="/" class="site-name">allizon.io</a>
+    <nav>
+      {navLinks.map(link => (
+        <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
+      ))}
+      <ThemeToggle />
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    background: var(--color-bg);
+    z-index: 10;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    gap: 1rem;
+  }
+
+  .site-name {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .site-name:hover { text-decoration: none; color: var(--color-text); }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  nav a {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  nav a:hover {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  nav a[aria-current="page"] {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  @media (max-width: 500px) {
+    .nav-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  }
+</style>

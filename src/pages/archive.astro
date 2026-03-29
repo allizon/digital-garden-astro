@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import TagList from '../components/TagList.astro';
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Group by year
+const byYear = allPosts.reduce<Record<number, typeof allPosts>>((acc, post) => {
+  const year = post.data.date.getFullYear();
+  (acc[year] ??= []).push(post);
+  return acc;
+}, {});
+
+const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
+---
+
+<Layout title="Archive">
+  <h1>Archive</h1>
+  {years.map(year => (
+    <section>
+      <h2 class="year-heading">{year}</h2>
+      <ul class="post-list">
+        {byYear[year].map(post => {
+          const d = post.data.date;
+          const shortDate = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+          return (
+            <li class="post-row">
+              <time datetime={d.toISOString()} class="text-muted text-small row-date">{shortDate}</time>
+              <a href={`/posts/${post.id}`} class="row-title">{post.data.title}</a>
+              <TagList tags={post.data.tags} />
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  ))}
+</Layout>
+
+<style>
+  h1 { margin-top: 0; }
+
+  .year-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 2rem 0 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.4rem;
+  }
+
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+    flex-wrap: wrap;
+  }
+
+  .post-row:last-child { border-bottom: none; }
+
+  .row-date {
+    min-width: 5rem;
+    flex-shrink: 0;
+  }
+
+  .row-title {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    text-decoration: none;
+    flex: 1;
+    min-width: 12rem;
+  }
+
+  .row-title:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+</style>

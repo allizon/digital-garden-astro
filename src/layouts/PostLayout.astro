@@ -1,0 +1,59 @@
+---
+import Layout from './Layout.astro';
+import TagList from '../components/TagList.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  description: string;
+  tags: string[];
+}
+
+const { title, date, description, tags } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<Layout title={title} description={description}>
+  <article class="prose">
+    <header class="post-header">
+      <time datetime={date.toISOString()} class="text-muted text-small">{formattedDate}</time>
+      <h1>{title}</h1>
+      <TagList tags={tags} />
+    </header>
+    <div class="post-body">
+      <slot />
+    </div>
+    <footer class="post-footer">
+      <TagList tags={tags} />
+    </footer>
+  </article>
+</Layout>
+
+<style>
+  .post-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .post-header h1 {
+    margin: 0.35rem 0 0.75rem;
+    font-size: 2rem;
+  }
+
+  .post-body {
+    margin-top: 2rem;
+  }
+
+  .post-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+</style>
