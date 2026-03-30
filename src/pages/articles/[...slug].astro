@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -15,7 +15,7 @@ export const getStaticPaths = async () => {
   const paths = articles.map((article) => {
     return {
       params: {
-        slug: article.slug,
+        slug: article.id,
       },
       props: {
         article,
@@ -31,7 +31,7 @@ type Props = {
 };
 
 const { article } = Astro.props;
-const { Content } = await article.render();
+const { Content } = await render(article);
 ---
 
 <Layout title={article.data.title}>

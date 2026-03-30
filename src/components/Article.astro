@@ -5,7 +5,6 @@
  */
 
 import type { CollectionEntry } from "astro:content";
-import { Image } from "astro:assets";
 
 type Props = {
   article: CollectionEntry<"articles">;
@@ -15,7 +14,7 @@ const { article } = Astro.props;
 ---
 
 <div class="article">
-  <div class="title"><a href=`/articles/${article.slug}`>{article.data.title}</a></div>
+  <div class="title"><a href={`/articles/${article.id}`}>{article.data.title}</a></div>
   <!-- image, should be in this local directory -->
   <div class="subhead">
     {article.data.subhead} ({article.data.date})
