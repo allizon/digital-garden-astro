@@ -21,7 +21,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
 
 <article class="post-card">
   <div class="meta">
-    <time datetime={date.toISOString()} class="text-muted text-small">{formattedDate}</time>
+    <time datetime={date.toISOString()} class="text-small">{formattedDate}</time>
     <TagList tags={tags} />
   </div>
   <h2 class="title">
@@ -47,11 +47,11 @@ const formattedDate = date.toLocaleDateString('en-US', {
   }
 
   .title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin: 0 0 0.5rem;
     font-weight: 650;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
   }
 
   .title a {
