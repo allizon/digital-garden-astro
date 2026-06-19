@@ -33,6 +33,7 @@ const dateISO = today.toISOString().split('T')[0];
 <Layout>
   <div class="home-layout">
     <div class="home-main">
+
       <section class="notebook-intro">
         <time class="notebook-date" datetime={dateISO}>{dateStr}</time>
         <p class="notebook-bio">
@@ -44,6 +45,7 @@ const dateISO = today.toISOString().split('T')[0];
         </p>
         <hr class="notebook-divider" />
       </section>
+
 
       <div class="post-list">
         {posts.map(post => (

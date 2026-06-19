@@ -19,6 +19,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
 });
 ---
 
+
 <article class="post-card">
   <div class="meta">
     <time datetime={date.toISOString()} class="text-small">{formattedDate}</time>
@@ -29,6 +30,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
   </h2>
   <p class="description text-muted">{description}</p>
 </article>
+
 
 <style>
   .post-card {

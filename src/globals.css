@@ -84,11 +84,12 @@
   }
 
   html {
-    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-family: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif;
     background: #13151a;
   }
 
   h1 {
+    font-family: 'Source Sans 3 Variable', system-ui, -apple-system, sans-serif;
     font-size: 4rem;
     font-weight: 900;
     line-height: 1;
@@ -97,6 +98,7 @@
   }
 
   h2 {
+    font-family: 'Source Sans 3 Variable', system-ui, -apple-system, sans-serif;
     font-size: 3rem;
     font-weight: 900;
     line-height: 1;

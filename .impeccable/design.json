@@ -110,7 +110,7 @@
       "refersTo": "tag-pill",
       "description": "Topic tags on posts and archive pages. Pill-shaped, surface background, accent on hover.",
       "html": "<span class=\"ds-tag-pill\">writing</span>",
-      "css": ".ds-tag-pill { display: inline-block; font-size: 0.75rem; padding: 0.2rem 0.55rem; border-radius: 999px; background: #f9fafb; border: 1px solid #e5e7eb; color: #6b7280; text-decoration: none; transition: border-color 0.15s, color 0.15s; } .ds-tag-pill:hover { color: #8b72c5; border-color: #8b72c5; }"
+      "css": ".ds-tag-pill { display: inline-block; font-size: 0.75rem; padding: 0.2rem 0.55rem; border-radius: 999px; background: #f9fafb; border: 1px solid #e5e7eb; color: #6b7280; text-decoration: none; transition: border-color 0.15s, color 0.15s; } .ds-tag-pill:hover { color: #7a5fb5; border-color: #7a5fb5; }"
     },
     {
       "name": "Sidebar Card",
@@ -126,7 +126,7 @@
       "refersTo": "theme-toggle-btn",
       "description": "Light/dark mode toggle button in the navigation.",
       "html": "<button class=\"ds-theme-toggle\"><span>\u2600\uFE0E</span></button>",
-      "css": ".ds-theme-toggle { background: none; border: 1px solid #e5e7eb; border-radius: 6px; padding: 0.3rem 0.6rem; cursor: pointer; color: #6b7280; font-size: 1rem; line-height: 1; transition: border-color 0.15s, color 0.15s; } .ds-theme-toggle:hover { color: #111827; border-color: #6b7280; } .ds-theme-toggle:focus-visible { outline: 2px solid #8b72c5; outline-offset: 2px; }"
+      "css": ".ds-theme-toggle { background: none; border: 1px solid #e5e7eb; border-radius: 6px; padding: 0.3rem 0.6rem; cursor: pointer; color: #6b7280; font-size: 1rem; line-height: 1; transition: border-color 0.15s, color 0.15s; } .ds-theme-toggle:hover { color: #111827; border-color: #6b7280; } .ds-theme-toggle:focus-visible { outline: 2px solid #7a5fb5; outline-offset: 2px; }"
     },
     {
       "name": "External Link Button",
@@ -134,7 +134,7 @@
       "refersTo": "external-link-btn",
       "description": "Outbound links for Pixar entry metadata (IMDb, TMDB, Rotten Tomatoes).",
       "html": "<a href=\"#\" class=\"ds-ext-link\">IMDb</a>",
-      "css": ".ds-ext-link { display: inline-block; font-size: 0.85rem; padding: 0.3rem 0.75rem; border: 1px solid #e5e7eb; border-radius: 4px; color: #6b7280; text-decoration: none; transition: all 0.15s; } .ds-ext-link:hover { border-color: #8b72c5; color: #8b72c5; }"
+      "css": ".ds-ext-link { display: inline-block; font-size: 0.85rem; padding: 0.3rem 0.75rem; border: 1px solid #e5e7eb; border-radius: 4px; color: #6b7280; text-decoration: none; transition: all 0.15s; } .ds-ext-link:hover { border-color: #7a5fb5; color: #7a5fb5; }"
     },
     {
       "name": "Post Card (List Item)",
@@ -142,12 +142,12 @@
       "refersTo": "post-card",
       "description": "Individual post preview in the home page and archive list. No container card — border divider between items.",
       "html": "<article class=\"ds-post-card\"><div style=\"display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.4rem;\"><time style=\"font-size:0.875rem;color:#6b7280;\">June 19, 2026</time><span class=\"ds-tag-pill\" style=\"display:inline-block;font-size:0.75rem;padding:0.2rem 0.55rem;border-radius:999px;background:#f9fafb;border:1px solid #e5e7eb;color:#6b7280;\">writing</span></div><h2 style=\"font-size:1.15rem;margin:0 0 0.4rem;font-weight:600;line-height:1.3;\"><a href=\"#\" style=\"color:#111827;text-decoration:none;transition:color 0.15s;\">Post Title</a></h2><p style=\"margin:0;font-size:0.925rem;line-height:1.55;color:#6b7280;\">A short description of the post content.</p></article>",
-      "css": ".ds-post-card { padding: 1.5rem 0; border-bottom: 1px solid #e5e7eb; } .ds-post-card:last-child { border-bottom: none; } .ds-post-card h2 a:hover { color: #8b72c5; }"
+      "css": ".ds-post-card { padding: 1.5rem 0; border-bottom: 1px solid #e5e7eb; } .ds-post-card:last-child { border-bottom: none; } .ds-post-card h2 a:hover { color: #7a5fb5; }"
     }
   ],
   "narrative": {
     "northStar": "The Notebook",
-    "overview": "Allizon.io is a personal writing site — a home for essays, reviews, and stray thoughts that lives outside any platform. The design treats the browser as a notebook: warm, unpretentious, and built around the words. Nothing shouts for attention because nothing needs to. The reading experience comes first; everything else earns its place.\n\nThe system uses a single, deliberate accent — Dusk Purple (#8b72c5) — as a quiet thread through links, hover states, and interactive elements. The palette stays restrained around it: a true white page, subtle gray surfaces, and near-black ink. Warmth comes from the voice and the pacing, not from decorative flourishes.\n\nThe site explicitly rejects generic blog-template aesthetics, SaaS clichés, and anything that suggests a platform rather than a person.",
+    "overview": "Allizon.io is a personal writing site — a home for essays, reviews, and stray thoughts that lives outside any platform. The design treats the browser as a notebook: warm, unpretentious, and built around the words. Nothing shouts for attention because nothing needs to. The reading experience comes first; everything else earns its place.\n\nThe system uses a single, deliberate accent — Dusk Purple (#7a5fb5) — as a quiet thread through links, hover states, and interactive elements. The palette stays restrained around it: a true white page, subtle gray surfaces, and near-black ink. Warmth comes from the voice and the pacing, not from decorative flourishes.\n\nThe site explicitly rejects generic blog-template aesthetics, SaaS clichés, and anything that suggests a platform rather than a person.",
     "keyCharacteristics": [
       "Words-first: typography and whitespace create the reading rhythm",
       "Single accent color applied sparingly and intentionally",
@@ -178,9 +178,9 @@
       }
     ],
     "dos": [
-      "Do use Dusk Purple (#8b72c5) as the single accent for links, focus states, and hover treatments.",
+      "Do use Dusk Purple (#7a5fb5) as the single accent for links, focus states, and hover treatments.",
       "Do keep the page background pure white (#ffffff) in light mode and near-black (#0a0a0a) in dark mode.",
-      "Do use Inter Variable across all scales — one family keeps the page quiet.",
+      "Do use Source Serif 4 for body text and Source Sans 3 for headings — a serif/sans pair with deliberate contrast.",
       "Do use subtle shadows (4px blur, 8% opacity black) only on interactive hover/focus states.",
       "Do let the writing set the rhythm. Typography and whitespace guide the reader; decoration doesn't.",
       "Do maintain WCAG AA contrast: body text at least 4.5:1 against its background."
@@ -191,7 +191,7 @@
       "Don't add drop shadows to elements at rest. Shadows indicate interactivity.",
       "Don't use stock blog-template patterns: no numbered section markers, no tiny uppercase tracked kickers above every section heading, no big-stat hero metrics.",
       "Don't use a warm-tinted page background (no beige, cream, sand, or paper tones). The untinted page is intentional.",
-      "Don't exceed three font families. One face for body/display, one for mono, and nothing else.",
+      "Don't exceed three font families. One serif for body, one sans for headings/UI, and one monospace for code — nothing else.",
       "Don't use side-stripe borders (border-left/right >1px as decoration).",
       "Don't over-round corners: cards cap at 6px, tags use 999px (pill shape), small buttons at 4px. No 24px+ radii on containers."
     ]

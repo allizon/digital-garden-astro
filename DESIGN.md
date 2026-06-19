@@ -2,7 +2,7 @@
 name: allizon.io
 description: A personal writing site by Allison
 colors:
-  primary: "#8b72c5"
+  primary: "#7a5fb5"
   primary-light: "#a68de3"
   primary-deep: "#6b51a1"
   primary-bright: "#b9a0f7"
@@ -14,16 +14,16 @@ colors:
   code-fill: "#f3f4f6"
 typography:
   body:
-    fontFamily: "'Inter Variable', system-ui, -apple-system, sans-serif"
+    fontFamily: "'Source Serif 4 Variable', Georgia, 'Times New Roman', serif"
     fontSize: "100%"
     fontWeight: 400
     lineHeight: 1.75
   heading:
-    fontFamily: "'Inter Variable', system-ui, -apple-system, sans-serif"
-    fontWeight: 600
+    fontFamily: "'Source Sans 3 Variable', system-ui, -apple-system, sans-serif"
+    fontWeight: 650
     lineHeight: 1.25
   label:
-    fontFamily: "'Inter Variable', system-ui, -apple-system, sans-serif"
+    fontFamily: "'Source Sans 3 Variable', system-ui, -apple-system, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 400
   mono:
@@ -69,7 +69,7 @@ components:
 
 Allizon.io is a personal writing site — a home for essays, reviews, and stray thoughts that lives outside any platform. The design treats the browser as a notebook: warm, unpretentious, and built around the words. Nothing shouts for attention because nothing needs to. The reading experience comes first; everything else earns its place.
 
-The system uses a single, deliberate accent — Dusk Purple (#8b72c5) — as a quiet thread through links, hover states, and interactive elements. The palette stays restrained around it: a true white page, subtle gray surfaces, and near-black ink. Warmth comes from the voice and the pacing, not from decorative flourishes.
+The system uses a single, deliberate accent — Dusk Purple (#7a5fb5) — as a quiet thread through links, hover states, and interactive elements. The palette stays restrained around it: a true white page, subtle gray surfaces, and near-black ink. Warmth comes from the voice and the pacing, not from decorative flourishes.
 
 The site explicitly rejects generic blog-template aesthetics, SaaS clichés (gradient text, hero metrics, numbered section markers), and anything that suggests a platform rather than a person. It should never feel like a Medium clone or a default theme.
 
@@ -87,7 +87,7 @@ A restrained palette built around one focal accent. The neutrals lean slightly c
 
 ### Primary
 
-- **Dusk Purple** (#8b72c5 / oklch(0.611 0.125 296.3)): The sole accent. Used for links, focus outlines, tag-pill hover borders, and interactive element accents. Never used for body text or large decorative areas.
+- **Dusk Purple** (#7a5fb5 / oklch(0.555 0.125 296.3)): The sole accent. Used for links, focus outlines, tag-pill hover borders, and interactive element accents. Never used for body text or large decorative areas.
 - **Dusk Purple Deep** (#6b51a1 / oklch(0.500 0.125 296.3)): Link hover and darker-interaction variant.
 - **Dusk Purple Light** (#a68de3 / oklch(0.700 0.125 296.3)): Dark-mode accent variant (maintained at same chroma and hue, higher lightness for contrast against dark bg).
 - **Dusk Purple Bright** (#b9a0f7 / oklch(0.761 0.125 296.3)): Dark-mode hover variant.
@@ -118,25 +118,25 @@ A restrained palette built around one focal accent. The neutrals lean slightly c
 
 ## 3. Typography
 
-**Body Font:** Inter Variable (self-hosted via @fontsource-variable), with system-ui and -apple-system fallbacks.
+**Body Font:** Source Serif 4 Variable (self-hosted via @fontsource-variable), with Georgia and Times New Roman fallbacks.
+**Sans Font:** Source Sans 3 Variable (self-hosted via @fontsource-variable), with system-ui and -apple-system fallbacks.
 **Mono Font:** JetBrains Mono, Fira Code, Cascadia Code, with monospace fallback.
-**Display Font:** Inter Variable (same as body — single-family system).
 
-**Character:** One font family across all scales. Inter is warm for a sans-serif: open apertures, humanist proportions, generous x-height. The single-family approach keeps the page quiet — no font changes distract from the reading flow. Typography earns emphasis through weight (600 for headings) and size, not through family switches.
+**Character:** A two-family system with genuine contrast. Source Serif 4 handles all body prose — warm, open, designed for long-form screen reading. Source Sans 3 carries headings, labels, and UI — clean, modern, a deliberate shift that signals structure without shouting. The serif/sans switch at the heading boundary is the main typographic move; it gives the page a book-like reading rhythm with crisp wayfinding.
 
 ### Hierarchy
 
 - **Body** (400, 100% / 16px, 1.75): All prose. Line length capped at 65–75ch via `--width-content` (680px).
-- **Headline 1** (600, 1.75rem / post pages 2rem, 1.25): Page and post titles. `text-wrap: balance`.
-- **Headline 2** (600, 1.35rem, 1.25): Section headings within posts.
-- **Headline 3** (600, 1.1rem, 1.25): Subsection headings.
+- **Headline 1** (650, 1.75rem / post pages 2rem, 1.25): Page and post titles. `text-wrap: balance`.
+- **Headline 2** (650, 1.35rem, 1.25): Section headings within posts.
+- **Headline 3** (650, 1.1rem, 1.25): Subsection headings.
 - **Small / Label** (400, 0.875rem, 1.5): Dates, metadata, secondary nav, sidebar text.
 - **Tag Label** (400, 0.75rem, 1): Tag pills. Small enough to sit alongside body text without disrupting the line.
-- **Mono / Code** (400, 0.875em, 1.6): Inline code and pre-formatted blocks. Code has a dedicated background fill.
+- **Mono / Code** (400, 0.875em, 1.6): Inline code and pre-formatted blocks.
 
 ### Named Rules
 
-**The Reading First Rule.** Display typography is restrained. The hierarchy exists to guide the reader into body copy, not to compete with it. Headlines never use display weights (900), extreme sizes, or letter-spacing that would read as "designed" rather than "written."
+**The Reading First Rule.** Display typography is restrained. The serif body signals "this is for reading" without decoration, while the sans headings provide crisp navigation without competing. Headlines never use display weights (900), extreme sizes, or letter-spacing that would read as "designed" rather than "written."
 
 ## 4. Elevation
 
@@ -207,9 +207,9 @@ Subtle shadows appear only as a response to interaction — a hover or focus sta
 
 ### Do
 
-- **Do** use Dusk Purple (#8b72c5) as the single accent for links, focus states, and hover treatments.
+- **Do** use Dusk Purple (#7a5fb5) as the single accent for links, focus states, and hover treatments.
 - **Do** keep the page background pure white (#ffffff) in light mode and near-black (#0a0a0a) in dark mode.
-- **Do** use Inter Variable across all scales — one family keeps the page quiet.
+- **Do** use Source Serif 4 for body text and Source Sans 3 for headings — a two-family system with deliberate contrast.
 - **Do** use subtle shadows (4px blur, 8% opacity black) only on interactive hover/focus states.
 - **Do** let the writing set the rhythm. Typography and whitespace guide the reader; decoration doesn't.
 - **Do** maintain WCAG AA contrast: body text at least 4.5:1 against its background.
@@ -221,6 +221,6 @@ Subtle shadows appear only as a response to interaction — a hover or focus sta
 - **Don't** add drop shadows to elements at rest. Shadows indicate interactivity.
 - **Don't** use stock blog-template patterns: no numbered section markers ("01 / 02 / 03"), no tiny uppercase tracked kickers above every section heading, no big-stat hero metrics.
 - **Don't** use a warm-tinted page background (no beige, cream, sand, or paper tones). The untinted page is intentional.
-- **Don't** exceed three font families. One face for body/display, one for mono, and nothing else.
+- **Don't** exceed three font families. One serif for body, one sans for headings/UI, and one monospace for code — nothing else.
 - **Don't** use side-stripe borders (border-left/right >1px as decoration).
 - **Don't** over-round corners: cards cap at 6px, tags use 999px (pill shape), small buttons at 4px. No 24px+ radii on containers.

@@ -1,5 +1,6 @@
 /* ── Fonts ─────────────────────────────────────────────────── */
-@import '@fontsource-variable/inter';
+@import '@fontsource-variable/source-serif-4';
+@import '@fontsource-variable/source-sans-3';
 
 /* ── Design tokens ─────────────────────────────────────────── */
 :root {
@@ -7,7 +8,7 @@
   --color-bg: #ffffff;
   --color-text: #111827;
   --color-text-muted: #6b7280;
-  --color-accent: #8b72c5;
+  --color-accent: #7a5fb5;
   --color-accent-hover: #6b51a1;
   --color-border: #e5e7eb;
   --color-surface: #f9fafb;
@@ -16,7 +17,8 @@
   --color-accent-subtle: #e8e0f5;
   --color-accent-border: #d4c8ed;
 
-  --font-sans: 'Inter Variable', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Source Sans 3 Variable', system-ui, -apple-system, sans-serif;
   /* intentional: use reader's installed monospace font */
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
 
@@ -60,7 +62,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: 100%;
   background: var(--color-bg);
   color: var(--color-text);
@@ -79,6 +81,7 @@ img { max-width: 100%; display: block; }
 
 /* ── Typography ─────────────────────────────────────────────── */
 h1, h2, h3, h4 {
+  font-family: var(--font-sans);
   line-height: 1.2;
   font-weight: 650;
   margin: 1.5em 0 0.5em;
