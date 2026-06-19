@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-19T00:00:00.000Z",
+  "title": "Design System: allizon.io",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Dusk Purple",
+        "canonical": "oklch(0.611 0.125 296.3)",
+        "tonalRamp": [
+          "oklch(0.15 0.125 296.3)",
+          "oklch(0.25 0.125 296.3)",
+          "oklch(0.35 0.125 296.3)",
+          "oklch(0.50 0.125 296.3)",
+          "oklch(0.611 0.125 296.3)",
+          "oklch(0.70 0.125 296.3)",
+          "oklch(0.82 0.085 296.3)",
+          "oklch(0.94 0.040 296.3)"
+        ]
+      },
+      "page-bg": {
+        "role": "neutral",
+        "displayName": "Page",
+        "canonical": "oklch(1.000 0.000 179.0)",
+        "tonalRamp": [
+          "oklch(0.10 0.000 0)",
+          "oklch(0.30 0.000 0)",
+          "oklch(0.50 0.000 0)",
+          "oklch(0.70 0.000 0)",
+          "oklch(0.85 0.000 0)",
+          "oklch(0.928 0.006 260.7)",
+          "oklch(0.967 0.003 256.5)",
+          "oklch(1.000 0.000 179.0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0.210 0.032 264.5)",
+        "tonalRamp": [
+          "oklch(0.10 0.015 264.5)",
+          "oklch(0.21 0.032 264.5)",
+          "oklch(0.35 0.030 264.5)",
+          "oklch(0.50 0.025 264.5)",
+          "oklch(0.65 0.020 264.5)",
+          "oklch(0.80 0.012 264.5)",
+          "oklch(0.90 0.006 264.5)",
+          "oklch(0.97 0.002 264.5)"
+        ]
+      },
+      "muted-ink": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "oklch(0.551 0.023 263.8)",
+        "tonalRamp": [
+          "oklch(0.15 0.010 263.8)",
+          "oklch(0.30 0.015 263.8)",
+          "oklch(0.45 0.020 263.8)",
+          "oklch(0.551 0.023 263.8)",
+          "oklch(0.65 0.020 263.8)",
+          "oklch(0.78 0.014 263.8)",
+          "oklch(0.88 0.008 263.8)",
+          "oklch(0.96 0.003 263.8)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose content. The foundation of the system."
+      },
+      "heading": {
+        "displayName": "Heading",
+        "purpose": "Section and page headings. Weight 600 only."
+      },
+      "label": {
+        "displayName": "Small / Label",
+        "purpose": "Dates, metadata, secondary navigation, sidebar text."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hover-lift",
+        "value": "0 4px 12px rgba(0,0,0,0.08)",
+        "purpose": "Subtle hover shadow for interactive containers (sidebar cards, external-link buttons). Applied on hover/focus only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-state",
+        "value": "0.15s",
+        "purpose": "Default transition duration for state changes (color, border-color, opacity)."
+      },
+      {
+        "name": "ease-accent-gradient",
+        "value": "0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Longer transition for decorative accent-gradient shifts on card hover."
+      }
+    ],
+    "breakpoints": [
+      { "name": "mobile-nav", "value": "500px" },
+      { "name": "tablet-sidebar", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Tag Pill",
+      "kind": "chip",
+      "refersTo": "tag-pill",
+      "description": "Topic tags on posts and archive pages. Pill-shaped, surface background, accent on hover.",
+      "html": "<span class=\"ds-tag-pill\">writing</span>",
+      "css": ".ds-tag-pill { display: inline-block; font-size: 0.75rem; padding: 0.2rem 0.55rem; border-radius: 999px; background: #f9fafb; border: 1px solid #e5e7eb; color: #6b7280; text-decoration: none; transition: border-color 0.15s, color 0.15s; } .ds-tag-pill:hover { color: #8b72c5; border-color: #8b72c5; }"
+    },
+    {
+      "name": "Sidebar Card",
+      "kind": "card",
+      "refersTo": "sidebar-card",
+      "description": "Sidebar widget container on home page and Pixar entry pages.",
+      "html": "<div class=\"ds-sidebar-card\"><h3 style=\"margin:0 0 0.5rem; font-size:0.95rem; font-weight:600;\">About</h3><p style=\"margin:0; font-size:0.875rem; line-height:1.5; color:#6b7280;\">Writing by Allison.</p></div>",
+      "css": ".ds-sidebar-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 1.25rem; transition: box-shadow 0.15s; } .ds-sidebar-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }"
+    },
+    {
+      "name": "Theme Toggle",
+      "kind": "button",
+      "refersTo": "theme-toggle-btn",
+      "description": "Light/dark mode toggle button in the navigation.",
+      "html": "<button class=\"ds-theme-toggle\"><span>\u2600\uFE0E</span></button>",
+      "css": ".ds-theme-toggle { background: none; border: 1px solid #e5e7eb; border-radius: 6px; padding: 0.3rem 0.6rem; cursor: pointer; color: #6b7280; font-size: 1rem; line-height: 1; transition: border-color 0.15s, color 0.15s; } .ds-theme-toggle:hover { color: #111827; border-color: #6b7280; } .ds-theme-toggle:focus-visible { outline: 2px solid #8b72c5; outline-offset: 2px; }"
+    },
+    {
+      "name": "External Link Button",
+      "kind": "button",
+      "refersTo": "external-link-btn",
+      "description": "Outbound links for Pixar entry metadata (IMDb, TMDB, Rotten Tomatoes).",
+      "html": "<a href=\"#\" class=\"ds-ext-link\">IMDb</a>",
+      "css": ".ds-ext-link { display: inline-block; font-size: 0.85rem; padding: 0.3rem 0.75rem; border: 1px solid #e5e7eb; border-radius: 4px; color: #6b7280; text-decoration: none; transition: all 0.15s; } .ds-ext-link:hover { border-color: #8b72c5; color: #8b72c5; }"
+    },
+    {
+      "name": "Post Card (List Item)",
+      "kind": "custom",
+      "refersTo": "post-card",
+      "description": "Individual post preview in the home page and archive list. No container card — border divider between items.",
+      "html": "<article class=\"ds-post-card\"><div style=\"display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.4rem;\"><time style=\"font-size:0.875rem;color:#6b7280;\">June 19, 2026</time><span class=\"ds-tag-pill\" style=\"display:inline-block;font-size:0.75rem;padding:0.2rem 0.55rem;border-radius:999px;background:#f9fafb;border:1px solid #e5e7eb;color:#6b7280;\">writing</span></div><h2 style=\"font-size:1.15rem;margin:0 0 0.4rem;font-weight:600;line-height:1.3;\"><a href=\"#\" style=\"color:#111827;text-decoration:none;transition:color 0.15s;\">Post Title</a></h2><p style=\"margin:0;font-size:0.925rem;line-height:1.55;color:#6b7280;\">A short description of the post content.</p></article>",
+      "css": ".ds-post-card { padding: 1.5rem 0; border-bottom: 1px solid #e5e7eb; } .ds-post-card:last-child { border-bottom: none; } .ds-post-card h2 a:hover { color: #8b72c5; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Notebook",
+    "overview": "Allizon.io is a personal writing site — a home for essays, reviews, and stray thoughts that lives outside any platform. The design treats the browser as a notebook: warm, unpretentious, and built around the words. Nothing shouts for attention because nothing needs to. The reading experience comes first; everything else earns its place.\n\nThe system uses a single, deliberate accent — Dusk Purple (#8b72c5) — as a quiet thread through links, hover states, and interactive elements. The palette stays restrained around it: a true white page, subtle gray surfaces, and near-black ink. Warmth comes from the voice and the pacing, not from decorative flourishes.\n\nThe site explicitly rejects generic blog-template aesthetics, SaaS clichés, and anything that suggests a platform rather than a person.",
+    "keyCharacteristics": [
+      "Words-first: typography and whitespace create the reading rhythm",
+      "Single accent color applied sparingly and intentionally",
+      "Flat by default, with subtle shadow on interaction",
+      "Responsive without breakpoint proliferation — flex-wrap and clamp handle most cases",
+      "Dark mode that mirrors the light mode's structure through color alone"
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Dusk Purple is the only accent color. It appears on links, focus indicators, hover treatments, and tag-pill state borders — roughly 5–10% of any given screen. Its restraint is the point. No secondary or tertiary accent colors exist.",
+        "section": "colors"
+      },
+      {
+        "name": "The Untinted Page Rule",
+        "body": "The page background is pure white in light mode (#ffffff) and near-black in dark mode (#0a0a0a). No warm tint on the body bg. Warmth is carried by the accent color, typography voice, and content — not by a beige or paper-toned page.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reading First Rule",
+        "body": "Display typography is restrained. The hierarchy exists to guide the reader into body copy, not to compete with it. Headlines never use display weights (900), extreme sizes, or letter-spacing that would read as 'designed' rather than 'written.'",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Foundation Rule",
+        "body": "Shadows exist only as a response to state. No surface at rest casts a shadow. If the shadow is removed from a hover state, the element must still look clickable through color or border alone.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use Dusk Purple (#8b72c5) as the single accent for links, focus states, and hover treatments.",
+      "Do keep the page background pure white (#ffffff) in light mode and near-black (#0a0a0a) in dark mode.",
+      "Do use Inter Variable across all scales — one family keeps the page quiet.",
+      "Do use subtle shadows (4px blur, 8% opacity black) only on interactive hover/focus states.",
+      "Do let the writing set the rhythm. Typography and whitespace guide the reader; decoration doesn't.",
+      "Do maintain WCAG AA contrast: body text at least 4.5:1 against its background."
+    ],
+    "donts": [
+      "Don't use any accent color other than Dusk Purple. No secondary or tertiary accents.",
+      "Don't use gradient text, glassmorphism, or decorative blur effects.",
+      "Don't add drop shadows to elements at rest. Shadows indicate interactivity.",
+      "Don't use stock blog-template patterns: no numbered section markers, no tiny uppercase tracked kickers above every section heading, no big-stat hero metrics.",
+      "Don't use a warm-tinted page background (no beige, cream, sand, or paper tones). The untinted page is intentional.",
+      "Don't exceed three font families. One face for body/display, one for mono, and nothing else.",
+      "Don't use side-stripe borders (border-left/right >1px as decoration).",
+      "Don't over-round corners: cards cap at 6px, tags use 999px (pill shape), small buttons at 4px. No 24px+ radii on containers."
+    ]
+  }
+}
