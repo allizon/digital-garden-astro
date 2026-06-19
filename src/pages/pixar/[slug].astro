@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+import PixarLayout from '@/layouts/PixarLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('pixar', ({ data }) => !data.draft);
+  return entries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+// Get all non-draft entries sorted by release_date for navigation
+const allEntries = await getCollection('pixar', ({ data }) => !data.draft);
+allEntries.sort((a, b) => a.data.release_date.valueOf() - b.data.release_date.valueOf());
+
+const currentIndex = allEntries.findIndex(e => e.id === entry.id);
+const prev = currentIndex > 0 ? { slug: allEntries[currentIndex - 1].id, title: allEntries[currentIndex - 1].data.title } : undefined;
+const next = currentIndex < allEntries.length - 1 ? { slug: allEntries[currentIndex + 1].id, title: allEntries[currentIndex + 1].data.title } : undefined;
+---
+
+<PixarLayout
+  title={entry.data.title}
+  subhead={entry.data.subhead}
+  date={entry.data.date}
+  release_date={entry.data.release_date}
+  watched={entry.data.watched}
+  emotional_rating={entry.data.emotional_rating}
+  actual_rating={entry.data.actual_rating}
+  imdb={entry.data.imdb}
+  tmdb={entry.data.tmdb}
+  rotten_tomatoes={entry.data.rotten_tomatoes}
+  prev={prev}
+  next={next}
+>
+  <Content />
+</PixarLayout>

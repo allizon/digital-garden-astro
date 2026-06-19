@@ -1,83 +1,46 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from "../layouts/Layout.astro";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
+
+const allEntries = await getCollection('pixar', ({ data }) => !data.draft);
+allEntries.sort((a, b) => a.data.release_date.valueOf() - b.data.release_date.valueOf());
 ---
 
 <Layout title="The Pixar Project">
   <main>
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <DropdownMenu />
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
-
     <h1 class="mb-0 mt-2 pb-0">The Pixar Project</h1>
 
-    <h2 class="mb-4 mt-8">Schedule</h2>
+    <p style="margin-top: 1.5rem;">
+      Watching and reviewing every Pixar movie in release order. Each entry
+      includes thoughts, ratings, and miscellaneous contemporaneous notes.
+    </p>
+
+    <h2 class="mb-4 mt-8">Schedule &amp; Entries</h2>
 
     <div class="schedule">
       <div class="row header">
-        <span class="date">Publish Date</span>
-        <span class="flick">Movie</span>
+        <span class="date">Movie</span>
+        <span class="flick">Released</span>
+        <span class="rating">Rating</span>
       </div>
 
-      <div class="row">
-        <span class="date">2024-09-15</span>
-        <span class="flick">Introduction</span>
-      </div>
-
-      <div class="row">
-        <span class="date">2024-09-22</span>
-        <span class="flick">
-          <a href="/articles/toy-story">Toy Story</a> (1995)
-        </span>
-      </div>
+      {allEntries.map(entry => (
+        <div class="row">
+          <span class="date">
+            <a href={`/pixar/${entry.id}`}>{entry.data.title}</a>
+          </span>
+          <span class="flick">{entry.data.release_date.getFullYear()}</span>
+          <span class="rating text-muted">{'★'.repeat(entry.data.actual_rating)}{'☆'.repeat(5 - entry.data.actual_rating)}</span>
+        </div>
+      ))}
     </div>
 
     <h2 class="mb-4 mt-8">The Agenda</h2>
 
     <ul class="ml-16 list-disc">
-      <li><a href="/articles/toy-story">Toy Story (1995)</a></li>
-      <li>A Bug's Life (1998)</li>
-      <li>Toy Story 2 (1999)</li>
-      <li>Monsters Inc. (2001)</li>
-      <li>Finding Nemo (2003)</li>
-      <li>The Incredibles (2004)</li>
-      <li>Cars (2006)</li>
-      <li>Ratatouille (2007)</li>
-      <li>WALL-E (2008)</li>
-      <li>Up (2009)</li>
-      <li>Toy Story 3 (2010)</li>
-      <li>Cars 2 (2011)</li>
-      <li>Brave (2012)</li>
-      <li>Monsters University (2013)</li>
-      <li>Inside Out (2015)</li>
-      <li>The Good Dinosaur (2015)</li>
-      <li>Finding Dory (2016)</li>
-      <li>Cars 3 (2017)</li>
-      <li>Coco (2017)</li>
-      <li>The Incredibles 2 (2018)</li>
-      <li>Toy Story 4 (2019)</li>
-      <li>Onward (2020)</li>
-      <li>Soul (2020)</li>
-      <li>Luca (2021)</li>
-      <li>Turning Red (2022)</li>
-      <li>Lightyear (2022)</li>
-      <li>Elemental (2023)</li>
-      <li>Inside Out 2 (2024)</li>
+      {allEntries.map(entry => (
+        <li><a href={`/pixar/${entry.id}`}>{entry.data.title} ({entry.data.release_date.getFullYear()})</a></li>
+      ))}
     </ul>
   </main>
 </Layout>
@@ -87,36 +50,30 @@ import { DropdownMenu } from "@/components/ui/dropdown-menu";
     display: flex;
     flex-direction: column;
     flex: 1;
+  }
 
-    .row {
-      display: flex;
-      flex-direction: row;
-      flex: 1;
-      padding: 0.25rem 0.5rem;
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 0.5rem 0.5rem;
+    align-items: center;
+  }
 
-      .date {
-        width: 25%;
-      }
+  .row .date { width: 45%; }
+  .row .flick { width: 30%; }
+  .row .rating { width: 25%; }
 
-      .flick {
-        width: 75%;
+  .row:nth-child(even) {
+    background-color: var(--color-surface);
+  }
 
-        /*&:has(a) {*/
-        /*  color: green;*/
-        /*}*/
-      }
+  .header {
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-border);
+  }
 
-      &:nth-child(even) {
-        background-color: var(--primary-color-dark);
-      }
-    }
-
-    .header {
-      font-weight: 700;
-    }
-
-    span {
-      padding-block: 0.25rem;
-    }
+  .row span {
+    padding-block: 0.25rem;
   }
 </style>

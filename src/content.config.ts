@@ -13,13 +13,23 @@ const posts = defineCollection({
   }),
 });
 
-const articles = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
+const pixar = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pixar' }),
   schema: z.object({
-    date: z.string(),
     title: z.string(),
     subhead: z.string(),
+    date: z.date(),
+    release_date: z.date(),
+    watched: z.date(),
+    emotional_rating: z.number().min(1).max(5),
+    actual_rating: z.number().min(1).max(5),
+    imdb: z.string().optional(),
+    tmdb: z.string().optional(),
+    rotten_tomatoes: z.string().optional(),
+    image: z.string().optional(),
+    tags: z.array(z.string()).optional().default([]),
+    draft: z.boolean().optional().default(false),
   }),
 });
 
-export const collections = { posts, articles };
+export const collections = { posts, pixar };

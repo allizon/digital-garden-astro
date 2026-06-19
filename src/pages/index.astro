@@ -6,25 +6,113 @@ import PostCard from '@/components/PostCard.astro';
 const allPosts = await getCollection('posts', ({ data }) => !data.draft);
 allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
+const pixarEntries = await getCollection('pixar', ({ data }) => !data.draft);
+
 const posts = allPosts.slice(0, 10);
 const hasMore = allPosts.length > 10;
 ---
 
 <Layout>
-  <div class="post-list">
-    {posts.map(post => (
-      <PostCard
-        id={post.id}
-        title={post.data.title}
-        date={post.data.date}
-        description={post.data.description}
-        tags={post.data.tags}
-      />
-    ))}
+  <div class="home-layout">
+    <div class="home-main">
+      <div class="post-list">
+        {posts.map(post => (
+          <PostCard
+            id={post.id}
+            title={post.data.title}
+            date={post.data.date}
+            description={post.data.description}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+      {hasMore && (
+        <p style="margin-top: 2rem;">
+          <a href="/archive">View all posts →</a>
+        </p>
+      )}
+    </div>
+
+    <aside class="home-sidebar">
+      <div class="sidebar-card">
+        <h2>About</h2>
+        <p class="text-small">
+          Writing by Allison. This is allizon.io.
+        </p>
+        <a href="/about" class="sidebar-link">More about me →</a>
+      </div>
+
+      {pixarEntries.length > 0 && (
+        <div class="sidebar-card">
+          <h2>Featured Project</h2>
+          <p class="text-small">
+            The Pixar Project — watching and reviewing every Pixar movie in release order.
+          </p>
+          <p class="text-small text-muted" style="margin-top: 0.5rem;">
+            {pixarEntries.length} {pixarEntries.length === 1 ? 'entry' : 'entries'} so far
+          </p>
+          <a href="/pixar" class="sidebar-link">View project →</a>
+        </div>
+      )}
+    </aside>
   </div>
-  {hasMore && (
-    <p style="margin-top: 2rem;">
-      <a href="/archive">View all posts →</a>
-    </p>
-  )}
 </Layout>
+
+<style>
+  .home-layout {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  .home-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .home-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+
+  .sidebar-card h2 {
+    font-size: 0.95rem;
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+  }
+
+  .sidebar-card p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .sidebar-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .home-layout {
+      flex-direction: column;
+    }
+
+    .home-sidebar {
+      width: 100%;
+      position: static;
+    }
+  }
+</style>

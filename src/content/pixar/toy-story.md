@@ -1,11 +1,18 @@
 ---
-date: "2024-09-11"
 title: Toy Story
-subhead: a subheading here
-slug: toy-story
+subhead: A subheading here
+date: 2024-09-11
+release_date: 1995-11-22
+watched: 2024-09-12
+emotional_rating: 5
+actual_rating: 4
+imdb: https://www.imdb.com/title/tt0114709/
+tmdb: https://www.themoviedb.org/movie/862
+rotten_tomatoes: https://www.rottentomatoes.com/m/toy_story
+tags: []
+draft: false
 ---
 
-- Watched 2024-09-12
 - Emotional rating: 5 stars
 - Actual rating: 4 stars
 

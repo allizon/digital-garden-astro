@@ -1,0 +1,247 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  subhead?: string;
+  date: Date;
+  release_date: Date;
+  watched: Date;
+  emotional_rating: number;
+  actual_rating: number;
+  imdb?: string;
+  tmdb?: string;
+  rotten_tomatoes?: string;
+  prev?: { slug: string; title: string };
+  next?: { slug: string; title: string };
+}
+
+const { title, subhead, date, release_date, watched, emotional_rating, actual_rating, imdb, tmdb, rotten_tomatoes, prev, next } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const releaseYear = release_date.getFullYear();
+const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+
+<Layout title={title}>
+  <article class="pixar-entry">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a> / <a href="/pixar">The Pixar Project</a> / <span>{title}</span>
+    </nav>
+
+    <div class="entry-layout">
+      <div class="entry-main">
+        <header class="entry-header">
+          <p class="release-year">{releaseYear}</p>
+          <h1>{title}</h1>
+          {subhead && <p class="subhead">{subhead}</p>}
+
+          <div class="meta-grid">
+            <div class="meta-item">
+              <span class="meta-label">Published</span>
+              <span class="meta-value">{formattedDate}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Watched</span>
+              <span class="meta-value">{watchedDate}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Emotional Rating</span>
+              <span class="meta-value">{'★'.repeat(emotional_rating)}{'☆'.repeat(5 - emotional_rating)}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Actual Rating</span>
+              <span class="meta-value">{'★'.repeat(actual_rating)}{'☆'.repeat(5 - actual_rating)}</span>
+            </div>
+          </div>
+
+          <div class="external-links">
+            {imdb && <a href={imdb} target="_blank" rel="noopener noreferrer">IMDb</a>}
+            {tmdb && <a href={tmdb} target="_blank" rel="noopener noreferrer">TMDB</a>}
+            {rotten_tomatoes && <a href={rotten_tomatoes} target="_blank" rel="noopener noreferrer">Rotten Tomatoes</a>}
+          </div>
+        </header>
+
+        <div class="content prose">
+          <slot />
+        </div>
+
+        <footer class="entry-footer">
+          {(prev || next) && (
+            <nav class="prev-next">
+              {prev ? (
+                <a href={`/pixar/${prev.slug}`} class="prev">← {prev.title}</a>
+              ) : <span />}
+              {next ? (
+                <a href={`/pixar/${next.slug}`} class="next">{next.title} →</a>
+              ) : <span />}
+            </nav>
+          )}
+        </footer>
+      </div>
+
+      <aside class="entry-sidebar">
+        <div class="sidebar-card">
+          <h3>The Pixar Project</h3>
+          <p class="text-muted text-small">Watching and reviewing every Pixar movie in release order.</p>
+        </div>
+      </aside>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .pixar-entry {
+    max-width: var(--width-wide);
+    margin: 0 auto;
+    padding: 0 var(--space-page);
+  }
+
+  .breadcrumbs {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .breadcrumbs a { color: var(--color-text-muted); }
+  .breadcrumbs a:hover { color: var(--color-accent); }
+
+  .entry-layout {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+  }
+
+  .entry-main {
+    flex: 1;
+    min-width: 0;
+    max-width: var(--width-content);
+  }
+
+  .entry-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 5rem;
+  }
+
+  .sidebar-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 1rem;
+  }
+
+  .sidebar-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .release-year {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.25rem;
+  }
+
+  .entry-header h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+  }
+
+  .subhead {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin: 0 0 1.5rem;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .meta-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .meta-value {
+    font-size: 0.9rem;
+  }
+
+  .external-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .external-links a {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+
+  .external-links a:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .content {
+    margin-bottom: 3rem;
+  }
+
+  .prev-next {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .prev-next a {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .prev-next a:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .entry-layout {
+      flex-direction: column;
+    }
+
+    .entry-sidebar {
+      width: 100%;
+      position: static;
+    }
+
+    .meta-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
