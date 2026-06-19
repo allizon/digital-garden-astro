@@ -21,7 +21,7 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
 
   --width-content: 680px;
-  --width-wide: 900px;
+  --width-wide: 1125px;
 
   --space-page: clamp(1rem, 5vw, 2rem);
 }
@@ -79,14 +79,15 @@ img { max-width: 100%; display: block; }
 
 /* ── Typography ─────────────────────────────────────────────── */
 h1, h2, h3, h4 {
-  line-height: 1.25;
-  font-weight: 600;
+  line-height: 1.2;
+  font-weight: 650;
   margin: 1.5em 0 0.5em;
+  text-wrap: balance;
 }
 
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.35rem; }
-h3 { font-size: 1.1rem; }
+h1 { font-size: 2rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.15rem; }
 h4 { font-size: 1rem; }
 
 p { line-height: 1.75; margin: 0 0 1.25em; }

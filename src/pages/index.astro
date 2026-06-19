@@ -2,19 +2,51 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import PostCard from '@/components/PostCard.astro';
+import TagList from '@/components/TagList.astro';
 
 const allPosts = await getCollection('posts', ({ data }) => !data.draft);
 allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const pixarEntries = await getCollection('pixar', ({ data }) => !data.draft);
+pixarEntries.sort((a, b) => b.data.release_date.valueOf() - a.data.release_date.valueOf());
 
 const posts = allPosts.slice(0, 10);
 const hasMore = allPosts.length > 10;
+
+const PIXAR_TOTAL = 27;
+const pixarCount = pixarEntries.length;
+const pixarProgress = Math.round((pixarCount / PIXAR_TOTAL) * 100);
+const latestPixar = pixarEntries[0]?.data.title;
+
+const allTags = [...new Set(allPosts.flatMap(p => p.data.tags))].sort();
+const today = new Date();
+const dateStr = today.toLocaleDateString('en-US', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+const dateISO = today.toISOString().split('T')[0];
 ---
 
 <Layout>
   <div class="home-layout">
     <div class="home-main">
+      <section class="notebook-intro">
+        <time class="notebook-date" datetime={dateISO}>{dateStr}</time>
+        <p class="notebook-bio">
+          I'm Alix. I write about movies, growing up, and the strange business
+          of being alive in the 2020s.
+        </p>
+        <p class="notebook-currently">
+          Currently reading: <a href="#">The Dispossessed</a> by Ursula K. Le Guin
+        </p>
+        <hr class="notebook-divider" />
+      </section>
+
+      <h2 class="section-label">Recent Writing</h2>
+
       <div class="post-list">
         {posts.map(post => (
           <PostCard
@@ -34,24 +66,25 @@ const hasMore = allPosts.length > 10;
     </div>
 
     <aside class="home-sidebar">
-      <div class="sidebar-card">
-        <h2>About</h2>
-        <p class="text-small">
-          Writing by Allison. This is allizon.io.
-        </p>
-        <a href="/about" class="sidebar-link">More about me →</a>
-      </div>
-
       {pixarEntries.length > 0 && (
-        <div class="sidebar-card">
-          <h2>Featured Project</h2>
+        <div class="sidebar-card sidebar-card-featured">
+          <h2>Pixar Project</h2>
           <p class="text-small">
-            The Pixar Project — watching and reviewing every Pixar movie in release order.
+            Watching every Pixar movie in release order.
           </p>
-          <p class="text-small text-muted" style="margin-top: 0.5rem;">
-            {pixarEntries.length} {pixarEntries.length === 1 ? 'entry' : 'entries'} so far
-          </p>
+          <div class="progress-track" role="progressbar" aria-valuenow={pixarCount} aria-valuemin={0} aria-valuemax={PIXAR_TOTAL} aria-label={`${pixarCount} of ${PIXAR_TOTAL} movies`}>
+            <div class="progress-fill" style={`width: ${pixarProgress}%`}></div>
+          </div>
+          <p class="progress-label">{pixarCount} / {PIXAR_TOTAL} movies</p>
+          {latestPixar && <p class="latest-label">Latest: {latestPixar}</p>}
           <a href="/pixar" class="sidebar-link">View project →</a>
+        </div>
+      )}
+
+      {allTags.length > 0 && (
+        <div class="sidebar-card">
+          <h2>Tags</h2>
+          <TagList tags={allTags} />
         </div>
       )}
     </aside>
@@ -68,6 +101,56 @@ const hasMore = allPosts.length > 10;
   .home-main {
     flex: 1;
     min-width: 0;
+  }
+
+  .notebook-intro {
+    margin-bottom: 3rem;
+  }
+
+  .notebook-date {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .notebook-bio {
+    font-size: 1.5rem;
+    font-weight: 420;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin: 0 0 0.75rem;
+    max-width: 36em;
+  }
+
+  .notebook-currently {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .notebook-currently a {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .notebook-divider {
+    margin: 2rem 0 0;
+    border: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.75rem;
   }
 
   .home-sidebar {
@@ -87,6 +170,10 @@ const hasMore = allPosts.length > 10;
     padding: 1.25rem;
   }
 
+  .sidebar-card-featured {
+    border-top: 2px solid var(--color-accent);
+  }
+
   .sidebar-card h2 {
     font-size: 0.95rem;
     margin: 0 0 0.5rem;
@@ -104,6 +191,37 @@ const hasMore = allPosts.length > 10;
     margin-top: 0.75rem;
     font-size: 0.85rem;
     color: var(--color-accent);
+  }
+
+  .progress-track {
+    height: 4px;
+    background: var(--color-accent-border);
+    border-radius: 2px;
+    margin: 0.6rem 0 0.4rem;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+
+  .progress-label {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .latest-label {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 0.15rem !important;
+  }
+
+  .sidebar-card .tag-list {
+    margin-top: 0.5rem;
   }
 
   @media (max-width: 768px) {
