@@ -13,10 +13,6 @@ tags: []
 draft: false
 ---
 
-- Emotional rating: 5 stars
-- Actual rating: 4 stars
-
-## Thoughts
 
 We just watched the original _Toy Story_, the first of the thirty-ish movies
 which will make up my [Pixar Newsletter](/pixar) project. Trying to watch it

@@ -24,13 +24,13 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
 ---
 
 <Layout title={title}>
-  <article class="pixar-entry">
-    <nav class="breadcrumbs">
-      <a href="/">Home</a> / <a href="/pixar">The Pixar Project</a> / <span>{title}</span>
-    </nav>
+  <div class="pixar-page">
+    <div class="entry-header-area">
+      <div class="header-inner">
+        <nav class="breadcrumbs">
+          <a href="/">Home</a> / <a href="/pixar">The Pixar Project</a> / <span>{title}</span>
+        </nav>
 
-    <div class="entry-layout">
-      <div class="entry-main">
         <header class="entry-header">
           <p class="release-year">{releaseYear}</p>
           <h1>{title}</h1>
@@ -61,27 +61,55 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
             {rotten_tomatoes && <a href={rotten_tomatoes} target="_blank" rel="noopener noreferrer">Rotten Tomatoes</a>}
           </div>
         </header>
-
-        <div class="content prose">
-          <slot />
-        </div>
-
-        <footer class="entry-footer">
-          {(prev || next) && (
-            <nav class="prev-next">
-              {prev ? (
-                <a href={`/pixar/${prev.slug}`} class="prev">← {prev.title}</a>
-              ) : <span />}
-              {next ? (
-                <a href={`/pixar/${next.slug}`} class="next">{next.title} →</a>
-              ) : <span />}
-            </nav>
-          )}
-        </footer>
       </div>
     </div>
-  </article>
+
+    <article class="pixar-entry">
+      <div class="entry-body">
+        <div class="entry-main">
+          <div class="content prose">
+            <slot />
+          </div>
+
+          <footer class="entry-footer">
+            {(prev || next) && (
+              <nav class="prev-next">
+                {prev ? (
+                  <a href={`/pixar/${prev.slug}`} class="prev">← {prev.title}</a>
+                ) : <span />}
+                {next ? (
+                  <a href={`/pixar/${next.slug}`} class="next">{next.title} →</a>
+                ) : <span />}
+              </nav>
+            )}
+          </footer>
+        </div>
+
+        <aside class="entry-sidebar">
+          <div class="sidebar-card">
+            <h3>On this page</h3>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </div>
 </Layout>
+
+<script>
+  function syncPixarHeader(): void {
+    const header = document.querySelector<HTMLElement>('.entry-header-area');
+    const page = document.querySelector<HTMLElement>('.pixar-page');
+    const sidebar = document.querySelector<HTMLElement>('.entry-sidebar');
+    if (!header || !page) return;
+    const headerBottom = header.getBoundingClientRect().bottom;
+    const pageTop = page.getBoundingClientRect().top;
+    page.style.paddingTop = Math.max(0, headerBottom - pageTop + 8) + 'px';
+    if (sidebar) sidebar.style.top = headerBottom + 'px';
+  }
+  syncPixarHeader();
+  document.fonts.ready.then(syncPixarHeader);
+  window.addEventListener('resize', syncPixarHeader);
+</script>
 
 <style>
   .pixar-entry {
@@ -101,13 +129,57 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
   .breadcrumbs a { color: var(--color-text-muted); }
   .breadcrumbs a:hover { color: var(--color-accent); }
 
-  .entry-layout {
+  .pixar-page {
+    padding-top: 450px; /* fallback; JS measures and sets exact value */
+  }
+
+  .entry-header-area {
+    position: fixed;
+    top: 0; /* extend to viewport top — background closes the gap with the nav */
+    left: 0;
+    right: 0;
+    z-index: 9; /* nav is z-index: 10, renders in front of this */
+    background: var(--color-bg);
+    padding-bottom: 0.5rem;
+  }
+
+  .header-inner {
+    max-width: var(--width-wide);
+    margin: 0 auto;
+    padding: 0 var(--space-page);
+    padding-top: 4.25rem; /* push content below the ~57px sticky nav */
+  }
+
+  .entry-body {
     display: flex;
-    flex-direction: column;
+    gap: 2.5rem;
+    align-items: flex-start;
   }
 
   .entry-main {
+    flex: 1;
     min-width: 0;
+  }
+
+  .entry-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 450px; /* fallback; JS sets exact value */
+    align-self: start;
+  }
+
+  .sidebar-card {
+    background: var(--color-surface-tint);
+    border: 1px solid var(--color-accent-border);
+    border-radius: 6px;
+    padding: 1rem;
+  }
+
+  .sidebar-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    color: var(--color-accent);
   }
 
   .release-year {
@@ -187,6 +259,36 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
     margin-inline: 0;
   }
 
+  :global(.callout) {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-accent-border);
+    border-radius: 6px;
+    background: var(--color-surface-tint);
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  :global(.callout.left) {
+    float: left;
+    width: 40%;
+    margin: 0.25rem 1.25rem 0.5rem 0;
+  }
+
+  :global(.callout.right) {
+    float: right;
+    width: 40%;
+    margin: 0.25rem 0 0.5rem 1.25rem;
+  }
+
+  @media (max-width: 640px) {
+    :global(.callout.left),
+    :global(.callout.right) {
+      float: none;
+      width: 100%;
+      margin: 1rem 0;
+    }
+  }
+
   .prev-next {
     display: flex;
     justify-content: space-between;
@@ -204,6 +306,15 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
   .prev-next a:hover { text-decoration: underline; }
 
   @media (max-width: 768px) {
+    .entry-body {
+      flex-direction: column;
+    }
+
+    .entry-sidebar {
+      width: 100%;
+      position: static;
+    }
+
     .meta-grid {
       grid-template-columns: 1fr;
     }
