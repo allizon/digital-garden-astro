@@ -41,9 +41,10 @@ const dateISO = today.toISOString().split('T')[0];
           of being alive in the 2020s.
         </p>
         <p class="notebook-currently">
+          <span class="sage-dot"></span>
           Currently reading: <a href="#">The Dispossessed</a> by Ursula K. Le Guin
         </p>
-        <hr class="notebook-divider" />
+        <hr class="sage" />
       </section>
 
 
@@ -67,7 +68,7 @@ const dateISO = today.toISOString().split('T')[0];
 
     <aside class="home-sidebar">
       {pixarEntries.length > 0 && (
-        <div class="sidebar-card sidebar-card-featured">
+        <div class="sidebar-card sidebar-card-pixar">
           <h2>Pixar Project</h2>
           <p class="text-small">
             Watching every Pixar movie in release order.
@@ -137,12 +138,6 @@ const dateISO = today.toISOString().split('T')[0];
     font-weight: 600;
   }
 
-  .notebook-divider {
-    margin: 2rem 0 0;
-    border: none;
-    border-top: 1px solid var(--color-border);
-  }
-
   .post-list {
     max-width: 42em;
   }
@@ -164,8 +159,8 @@ const dateISO = today.toISOString().split('T')[0];
     padding: 1.25rem;
   }
 
-  .sidebar-card-featured {
-    border-top: 4px solid var(--color-accent);
+  .sidebar-card-pixar {
+    border-top: 4px solid var(--color-sage);
   }
 
   .sidebar-card h2 {
@@ -198,7 +193,7 @@ const dateISO = today.toISOString().split('T')[0];
   .progress-fill {
     height: 100%;
     width: 100%;
-    background: var(--color-accent);
+    background: var(--color-sage);
     border-radius: 2px;
     transform-origin: left;
     transition: transform 0.3s ease;

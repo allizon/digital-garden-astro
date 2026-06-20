@@ -16,6 +16,10 @@
   --color-code-bg: #f3f4f6;
   --color-accent-subtle: #e8e0f5;
   --color-accent-border: #d4c8ed;
+  --color-sage: #7a9b7c;
+  --color-sage-hover: #8cac8e;
+  --color-sage-subtle: #ebf3ea;
+  --color-sage-border: #c5d8c5;
 
   --font-serif: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif;
   --font-sans: 'Source Sans 3 Variable', system-ui, -apple-system, sans-serif;
@@ -40,6 +44,10 @@
   --color-code-bg: #1f2937;
   --color-accent-subtle: #251a3a;
   --color-accent-border: #2e204a;
+  --color-sage: #89a88b;
+  --color-sage-hover: #9dbe9f;
+  --color-sage-subtle: #1a2318;
+  --color-sage-border: #293628;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,6 +63,10 @@
     --color-code-bg: #1f2937;
     --color-accent-subtle: #251a3a;
     --color-accent-border: #2e204a;
+    --color-sage: #89a88b;
+    --color-sage-hover: #9dbe9f;
+    --color-sage-subtle: #1a2318;
+    --color-sage-border: #293628;
   }
 }
 
@@ -163,5 +175,48 @@ hr.accent {
 .text-muted { color: var(--color-text-muted); }
 .text-small { font-size: 0.875rem; }
 .text-accent { color: var(--color-accent); }
+.text-sage { color: var(--color-sage); }
 .surface-tint { background: var(--color-surface-tint); }
 .border-accent { border-color: var(--color-accent-border); }
+
+/* ── Blockquotes ─────────────────────────────────────────── */
+blockquote,
+.prose blockquote {
+  margin: 1.5em 0;
+  padding: 0.75rem 1.25rem;
+  border-left: 3px solid var(--color-sage);
+  background: var(--color-sage-subtle);
+  border-radius: 0 6px 6px 0;
+  font-style: normal;
+  color: var(--color-text);
+}
+
+.prose blockquote p:last-child,
+blockquote p:last-child { margin-bottom: 0; }
+
+/* ── Inline highlights ──────────────────────────────────── */
+mark {
+  background: var(--color-sage-subtle);
+  color: var(--color-text);
+  padding: 0.1em 0.25em;
+  border-radius: 3px;
+}
+
+/* ── Sage decorative dot ────────────────────────────────── */
+.sage-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-sage);
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ── Sage accent rule ───────────────────────────────────── */
+hr.sage {
+  border: none;
+  border-top: 2px solid var(--color-sage);
+  width: 3rem;
+  margin: 1.5rem 0;
+}

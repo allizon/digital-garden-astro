@@ -1,6 +1,6 @@
 ---
 title: Toy Story
-subhead: A subheading here
+subhead: Everything begins here.
 date: 2024-09-11
 release_date: 1995-11-22
 watched: 2024-09-12

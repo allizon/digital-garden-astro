@@ -6,6 +6,10 @@ colors:
   primary-light: "#a68de3"
   primary-deep: "#6b51a1"
   primary-bright: "#b9a0f7"
+  sage: "#7a9b7c"
+  sage-hover: "#8cac8e"
+  sage-subtle: "#ebf3ea"
+  sage-border: "#c5d8c5"
   page-bg: "#ffffff"
   ink: "#111827"
   muted-ink: "#6b7280"
@@ -69,21 +73,21 @@ components:
 
 Allizon.io is a personal writing site — a home for essays, reviews, and stray thoughts that lives outside any platform. The design treats the browser as a notebook: warm, unpretentious, and built around the words. Nothing shouts for attention because nothing needs to. The reading experience comes first; everything else earns its place.
 
-The system uses a single, deliberate accent — Dusk Purple (#7a5fb5) — as a quiet thread through links, hover states, and interactive elements. The palette stays restrained around it: a true white page, subtle gray surfaces, and near-black ink. Warmth comes from the voice and the pacing, not from decorative flourishes.
+The system uses a restrained two-color accent system — Dusk Purple (#7a5fb5) for links, focus states, and interactive cues, with Warm Sage (#7a9b7c) as a secondary accent for decorative elements, progress indicators, and prose styling. The palette stays restrained around them: a true white page, subtle gray surfaces, and near-black ink. Warmth comes from the voice and the pacing, not from decorative flourishes.
 
 The site explicitly rejects generic blog-template aesthetics, SaaS clichés (gradient text, hero metrics, numbered section markers), and anything that suggests a platform rather than a person. It should never feel like a Medium clone or a default theme.
 
 **Key Characteristics:**
 
 - Words-first: typography and whitespace create the reading rhythm
-- Single accent color applied sparingly and intentionally
+- Two-color accent system applied with restraint: Dusk Purple (interaction) + Warm Sage (decoration)
 - Flat by default, with subtle shadow on interaction
 - Responsive without breakpoint proliferation — flex-wrap and clamp handle most cases
 - Dark mode that mirrors the light mode's structure through color alone
 
 ## 2. Colors: The Notebook Palette
 
-A restrained palette built around one focal accent. The neutrals lean slightly cool to let the warm-purple accent stand out without competing.
+A restrained palette built around two complementary accents: Dusk Purple (warm, contemplative) for interaction, and Warm Sage (earthy, calm) for decoration and prose. The neutrals lean slightly cool to let both accents stand out without competing.
 
 ### Primary
 
@@ -91,6 +95,13 @@ A restrained palette built around one focal accent. The neutrals lean slightly c
 - **Dusk Purple Deep** (#6b51a1 / oklch(0.500 0.125 296.3)): Link hover and darker-interaction variant.
 - **Dusk Purple Light** (#a68de3 / oklch(0.700 0.125 296.3)): Dark-mode accent variant (maintained at same chroma and hue, higher lightness for contrast against dark bg).
 - **Dusk Purple Bright** (#b9a0f7 / oklch(0.761 0.125 296.3)): Dark-mode hover variant.
+
+### Secondary
+
+- **Warm Sage** (#7a9b7c / oklch(0.60 0.07 145)): Secondary accent. Used for progress bars, blockquote borders, `<mark>` highlights, decorative rules, and accent dots. Never used for links, focus states, or body text.
+- **Warm Sage Hover** (#8cac8e / oklch(0.68 0.07 145)): Slightly lighter sage for hover states on sage-accented elements.
+- **Warm Sage Subtle** (#ebf3ea / oklch(0.95 0.015 145)): Background tint for blockquotes, `<mark>` backgrounds, and subtle surface washes.
+- **Warm Sage Border** (#c5d8c5 / oklch(0.84 0.025 145)): Borders and dividers on sage-accented surfaces.
 
 ### Neutral — Light Mode
 
@@ -110,9 +121,16 @@ A restrained palette built around one focal accent. The neutrals lean slightly c
 - **Line** (#1f2937): Borders, dividers, separators.
 - **Code Fill** (#1f2937): Code backgrounds.
 
+### Secondary — Dark Mode
+
+- **Warm Sage** (#89a88b): Dark-mode sage accent for progress bars, decorative rules, and accent dots.
+- **Warm Sage Hover** (#9dbe9f): Dark-mode sage hover variant.
+- **Warm Sage Subtle** (#1a2318): Dark-mode background tint for blockquotes and marks.
+- **Warm Sage Border** (#293628): Dark-mode sage border color.
+
 ### Named Rules
 
-**The One Accent Rule.** Dusk Purple is the only accent color. It appears on links, focus indicators, hover treatments, and tag-pill state borders — roughly 5–10% of any given screen. Its restraint is the point. No secondary or tertiary accent colors exist.
+**The Two-Accent Rule.** Dusk Purple is the primary accent for interaction (links, focus indicators, hover treatments). Warm Sage is the secondary accent for decoration and prose (progress bars, blockquotes, marks, decorative rules). The two have distinct roles and never compete for the same job. Dusk Purple occupies roughly 5–8% of any screen, Sage another 3–5%. The restraint is still the point — color earns its place.
 
 **The Untinted Page Rule.** The page background is pure white in light mode (#ffffff) and near-black in dark mode (#0a0a0a). No warm tint on the body bg. Warmth is carried by the accent color, typography voice, and content — not by a beige or paper-toned page.
 
@@ -196,6 +214,24 @@ Subtle shadows appear only as a response to interaction — a hover or focus sta
 - **Hover:** Border and text transition to Dusk Purple.
 - **Spacing:** `0.3rem 0.75rem` padding.
 
+### Progress Bar (Pixar Sidebar Card)
+
+- **Track:** 4px tall, rounded (`border-radius: 2px`), `--color-sage-border` background.
+- **Fill:** Warm Sage (`--color-sage`), scales from left via `transform: scaleX()`.
+- **Label:** Muted Ink, 0.8rem.
+
+### Blockquotes
+
+- **Border:** 3px left border in Warm Sage (`--color-sage`).
+- **Background:** Warm Sage Subtle (`--color-sage-subtle`), `border-radius: 0 6px 6px 0`.
+- **Padding:** `0.75rem 1.25rem`.
+
+### Inline Highlights (`<mark>`)
+
+- **Background:** Warm Sage Subtle (`--color-sage-subtle`).
+- **Text:** Inherits body color (`--color-text`).
+- **Rounding:** 3px `border-radius`, `0.1em 0.25em` padding.
+
 ### Post Cards (Home Page / Archive)
 
 - **Style:** Bottom border separator (1px solid `--color-border`) between cards. No card container — the border is the divider.
@@ -207,7 +243,8 @@ Subtle shadows appear only as a response to interaction — a hover or focus sta
 
 ### Do
 
-- **Do** use Dusk Purple (#7a5fb5) as the single accent for links, focus states, and hover treatments.
+- **Do** use Dusk Purple (#7a5fb5) as the primary accent for links, focus states, and hover treatments.
+- **Do** use Warm Sage (#7a9b7c) as the secondary accent for decorative elements, progress bars, blockquotes, and `<mark>` highlights.
 - **Do** keep the page background pure white (#ffffff) in light mode and near-black (#0a0a0a) in dark mode.
 - **Do** use Source Serif 4 for body text and Source Sans 3 for headings — a two-family system with deliberate contrast.
 - **Do** use subtle shadows (4px blur, 8% opacity black) only on interactive hover/focus states.
@@ -216,7 +253,7 @@ Subtle shadows appear only as a response to interaction — a hover or focus sta
 
 ### Don't
 
-- **Don't** use any accent color other than Dusk Purple. No secondary or tertiary accents.
+- **Don't** use Sage where Purple belongs (links, focus states, primary CTAs). Don't use Purple where Sage belongs (blockquotes, marks, progress bars). Roles are distinct.
 - **Don't** use gradient text, glassmorphism, or decorative blur effects.
 - **Don't** add drop shadows to elements at rest. Shadows indicate interactivity.
 - **Don't** use stock blog-template patterns: no numbered section markers ("01 / 02 / 03"), no tiny uppercase tracked kickers above every section heading, no big-stat hero metrics.
