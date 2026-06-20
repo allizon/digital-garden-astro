@@ -6,6 +6,12 @@
       "sourceType": "github",
       "skillPath": ".agents/skills/impeccable/SKILL.md",
       "computedHash": "c3fc1193e4777c1fde1e8455a6ce23bbc0ae506dabb026b639cf594fdfa6c733"
+    },
+    "ponytail": {
+      "source": "dietrichgebert/ponytail",
+      "sourceType": "github",
+      "skillPath": "skills/ponytail/SKILL.md",
+      "computedHash": "55e888f9d81f873068de13d44f4f963595aa2c2c6bb0f9024160bea79f756618"
     }
   }
 }

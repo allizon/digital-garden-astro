@@ -99,12 +99,20 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
   function syncPixarHeader(): void {
     const header = document.querySelector<HTMLElement>('.entry-header-area');
     const page = document.querySelector<HTMLElement>('.pixar-page');
-    const sidebar = document.querySelector<HTMLElement>('.entry-sidebar');
     if (!header || !page) return;
+    // Measure the header height (not its viewport-relative bottom, which is
+    // scroll-position-dependent). The header is position:fixed so its
+    // offsetHeight is the stable intrinsic height; add the nav offset via
+    // its top+height so we get the absolute pixel distance from viewport top.
     const headerBottom = header.getBoundingClientRect().bottom;
     const pageTop = page.getBoundingClientRect().top;
-    page.style.paddingTop = Math.max(0, headerBottom - pageTop + 8) + 'px';
-    if (sidebar) sidebar.style.top = headerBottom + 'px';
+    const gap = 8;
+    const paddingTop = Math.max(0, headerBottom - pageTop + gap);
+    page.style.paddingTop = paddingTop + 'px';
+    // sidebar top must match the actual start of .entry-body (headerBottom + gap),
+    // not just headerBottom. If top < bodyTop, there's a free-movement zone
+    // where the sidebar scrolls before sticking, causing visible jitter.
+    document.documentElement.style.setProperty('--sidebar-top', (headerBottom + gap) + 'px');
   }
   syncPixarHeader();
   document.fonts.ready.then(syncPixarHeader);
@@ -165,8 +173,9 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
     width: 220px;
     flex-shrink: 0;
     position: sticky;
-    top: 450px; /* fallback; JS sets exact value */
+    top: var(--sidebar-top, 474px); /* JS sets --sidebar-top on <html> */
     align-self: start;
+    will-change: transform; /* compositor layer — eliminates sub-pixel jitter on scroll */
   }
 
   .sidebar-card {
