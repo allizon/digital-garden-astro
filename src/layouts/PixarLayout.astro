@@ -79,13 +79,6 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
           )}
         </footer>
       </div>
-
-      <aside class="entry-sidebar">
-        <div class="sidebar-card">
-          <h3>The Pixar Project</h3>
-          <p class="text-muted text-small">Watching and reviewing every Pixar movie in release order.</p>
-        </div>
-      </aside>
     </div>
   </article>
 </Layout>
@@ -110,34 +103,11 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
 
   .entry-layout {
     display: flex;
-    gap: 2.5rem;
-    align-items: flex-start;
+    flex-direction: column;
   }
 
   .entry-main {
-    flex: 1;
     min-width: 0;
-    max-width: var(--width-content);
-  }
-
-  .entry-sidebar {
-    width: 220px;
-    flex-shrink: 0;
-    position: sticky;
-    top: 5rem;
-  }
-
-  .sidebar-card {
-    background: var(--color-surface-tint);
-    border: 1px solid var(--color-accent-border);
-    border-radius: 6px;
-    padding: 1rem;
-  }
-
-  .sidebar-card h3 {
-    margin: 0 0 0.5rem;
-    font-size: 0.95rem;
-    color: var(--color-accent);
   }
 
   .release-year {
@@ -213,6 +183,8 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
 
   .content {
     margin-bottom: 3rem;
+    max-width: none;
+    margin-inline: 0;
   }
 
   .prev-next {
@@ -232,15 +204,6 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
   .prev-next a:hover { text-decoration: underline; }
 
   @media (max-width: 768px) {
-    .entry-layout {
-      flex-direction: column;
-    }
-
-    .entry-sidebar {
-      width: 100%;
-      position: static;
-    }
-
     .meta-grid {
       grid-template-columns: 1fr;
     }
