@@ -225,7 +225,7 @@ Subtle shadows appear only as a response to interaction — a hover or focus sta
 - **Text:** Inherits body color (`--color-text`).
 - **Rounding:** 3px `border-radius`, `0.1em 0.25em` padding.
 
-### Post Cards (Home Page / Archive)
+### Post Cards (Home Page / Posts)
 
 - **Style:** Bottom border separator (1px solid `--color-border`) between cards. No card container — the border is the divider.
 - **Title:** 1.15rem, weight 600, Ink color. Transitions to Brick Red on hover.

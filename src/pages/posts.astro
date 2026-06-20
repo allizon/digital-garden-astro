@@ -16,8 +16,8 @@ const byYear = allPosts.reduce<Record<number, typeof allPosts>>((acc, post) => {
 const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 ---
 
-<Layout title="Archive" breadcrumbs={[{ label: 'Archive' }]}>
-  <h1>Archive</h1>
+<Layout title="Posts" breadcrumbs={[{ label: 'Posts' }]}>
+  <h1>Posts</h1>
   {years.map(year => (
     <section>
       <h2 class="year-heading"><span class="gold-dot"></span>{year}</h2>
