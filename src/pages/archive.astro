@@ -20,7 +20,7 @@ const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
   <h1>Archive</h1>
   {years.map(year => (
     <section>
-      <h2 class="year-heading"><span class="sage-dot"></span>{year}</h2>
+      <h2 class="year-heading"><span class="gold-dot"></span>{year}</h2>
       <ul class="post-list">
         {byYear[year].map(post => {
           const d = post.data.date;

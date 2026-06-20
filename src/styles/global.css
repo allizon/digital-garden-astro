@@ -4,22 +4,22 @@
 
 /* ── Design tokens ─────────────────────────────────────────── */
 :root {
-  /* Light mode */
-  --color-bg: #ffffff;
-  --color-text: #111827;
-  --color-text-muted: #6b7280;
-  --color-accent: #7a5fb5;
-  --color-accent-hover: #6b51a1;
-  --color-border: #e5e7eb;
-  --color-surface: #f9fafb;
-  --color-surface-tint: #f5f0fa;
-  --color-code-bg: #f3f4f6;
-  --color-accent-subtle: #e8e0f5;
-  --color-accent-border: #d4c8ed;
-  --color-sage: #7a9b7c;
-  --color-sage-hover: #8cac8e;
-  --color-sage-subtle: #ebf3ea;
-  --color-sage-border: #c5d8c5;
+  /* Light mode — Brick & Ink palette */
+  --color-bg: oklch(1 0 0);
+  --color-text: oklch(0.141 0.015 30);
+  --color-text-muted: oklch(0.490 0.015 30);
+  --color-accent: oklch(0.480 0.130 28);
+  --color-accent-hover: oklch(0.420 0.130 28);
+  --color-border: oklch(0.890 0.003 30);
+  --color-surface: oklch(0.973 0.003 30);
+  --color-surface-tint: oklch(0.945 0.008 28);
+  --color-code-bg: oklch(0.970 0.003 30);
+  --color-accent-subtle: oklch(0.930 0.012 28);
+  --color-accent-border: oklch(0.830 0.015 28);
+  --color-gold: oklch(0.740 0.080 70);
+  --color-gold-hover: oklch(0.800 0.080 70);
+  --color-gold-subtle: oklch(0.950 0.010 70);
+  --color-gold-border: oklch(0.850 0.020 70);
 
   --font-serif: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif;
   --font-sans: 'Source Sans 3 Variable', system-ui, -apple-system, sans-serif;
@@ -33,40 +33,40 @@
 }
 
 [data-theme="dark"] {
-  --color-bg: #0a0a0a;
-  --color-text: #e5e7eb;
-  --color-text-muted: #9ca3af;
-  --color-accent: #a68de3;
-  --color-accent-hover: #b9a0f7;
-  --color-border: #1f2937;
-  --color-surface: #111827;
-  --color-surface-tint: #1a1225;
-  --color-code-bg: #1f2937;
-  --color-accent-subtle: #251a3a;
-  --color-accent-border: #2e204a;
-  --color-sage: #89a88b;
-  --color-sage-hover: #9dbe9f;
-  --color-sage-subtle: #1a2318;
-  --color-sage-border: #293628;
+  --color-bg: oklch(0.09 0.008 28);
+  --color-text: oklch(0.86 0.005 28);
+  --color-text-muted: oklch(0.55 0.01 28);
+  --color-accent: oklch(0.68 0.12 28);
+  --color-accent-hover: oklch(0.74 0.12 28);
+  --color-border: oklch(0.20 0.008 28);
+  --color-surface: oklch(0.14 0.008 28);
+  --color-surface-tint: oklch(0.17 0.010 28);
+  --color-code-bg: oklch(0.14 0.008 28);
+  --color-accent-subtle: oklch(0.18 0.015 28);
+  --color-accent-border: oklch(0.24 0.015 28);
+  --color-gold: oklch(0.78 0.075 70);
+  --color-gold-hover: oklch(0.84 0.075 70);
+  --color-gold-subtle: oklch(0.16 0.010 70);
+  --color-gold-border: oklch(0.22 0.012 70);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #0a0a0a;
-    --color-text: #e5e7eb;
-    --color-text-muted: #9ca3af;
-    --color-accent: #a68de3;
-    --color-accent-hover: #b9a0f7;
-    --color-border: #1f2937;
-    --color-surface: #111827;
-    --color-surface-tint: #1a1225;
-    --color-code-bg: #1f2937;
-    --color-accent-subtle: #251a3a;
-    --color-accent-border: #2e204a;
-    --color-sage: #89a88b;
-    --color-sage-hover: #9dbe9f;
-    --color-sage-subtle: #1a2318;
-    --color-sage-border: #293628;
+    --color-bg: oklch(0.09 0.008 28);
+    --color-text: oklch(0.86 0.005 28);
+    --color-text-muted: oklch(0.55 0.01 28);
+    --color-accent: oklch(0.68 0.12 28);
+    --color-accent-hover: oklch(0.74 0.12 28);
+    --color-border: oklch(0.20 0.008 28);
+    --color-surface: oklch(0.14 0.008 28);
+    --color-surface-tint: oklch(0.17 0.010 28);
+    --color-code-bg: oklch(0.14 0.008 28);
+    --color-accent-subtle: oklch(0.18 0.015 28);
+    --color-accent-border: oklch(0.24 0.015 28);
+    --color-gold: oklch(0.78 0.075 70);
+    --color-gold-hover: oklch(0.84 0.075 70);
+    --color-gold-subtle: oklch(0.16 0.010 70);
+    --color-gold-border: oklch(0.22 0.012 70);
   }
 }
 
@@ -175,7 +175,7 @@ hr.accent {
 .text-muted { color: var(--color-text-muted); }
 .text-small { font-size: 0.875rem; }
 .text-accent { color: var(--color-accent); }
-.text-sage { color: var(--color-sage); }
+.text-gold { color: var(--color-gold); }
 .surface-tint { background: var(--color-surface-tint); }
 .border-accent { border-color: var(--color-accent-border); }
 
@@ -184,8 +184,8 @@ blockquote,
 .prose blockquote {
   margin: 1.5em 0;
   padding: 0.75rem 1.25rem;
-  border-left: 3px solid var(--color-sage);
-  background: var(--color-sage-subtle);
+  border-left: 3px solid var(--color-gold);
+  background: var(--color-gold-subtle);
   border-radius: 0 6px 6px 0;
   font-style: normal;
   color: var(--color-text);
@@ -196,27 +196,27 @@ blockquote p:last-child { margin-bottom: 0; }
 
 /* ── Inline highlights ──────────────────────────────────── */
 mark {
-  background: var(--color-sage-subtle);
+  background: var(--color-gold-subtle);
   color: var(--color-text);
   padding: 0.1em 0.25em;
   border-radius: 3px;
 }
 
-/* ── Sage decorative dot ────────────────────────────────── */
-.sage-dot {
+/* ── Gold decorative dot ────────────────────────────────── */
+.gold-dot {
   display: inline-block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--color-sage);
+  background: var(--color-gold);
   margin-right: 0.5rem;
   vertical-align: middle;
 }
 
-/* ── Sage accent rule ───────────────────────────────────── */
-hr.sage {
+/* ── Gold accent rule ───────────────────────────────────── */
+hr.gold {
   border: none;
-  border-top: 2px solid var(--color-sage);
+  border-top: 2px solid var(--color-gold);
   width: 3rem;
   margin: 1.5rem 0;
 }

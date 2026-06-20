@@ -2,20 +2,20 @@
 name: allizon.io
 description: A personal writing site by Allison
 colors:
-  primary: "#7a5fb5"
-  primary-light: "#a68de3"
-  primary-deep: "#6b51a1"
-  primary-bright: "#b9a0f7"
-  sage: "#7a9b7c"
-  sage-hover: "#8cac8e"
-  sage-subtle: "#ebf3ea"
-  sage-border: "#c5d8c5"
-  page-bg: "#ffffff"
-  ink: "#111827"
-  muted-ink: "#6b7280"
-  surface: "#f9fafb"
-  line: "#e5e7eb"
-  code-fill: "#f3f4f6"
+  primary: "oklch(0.480 0.130 28)"
+  primary-hover: "oklch(0.420 0.130 28)"
+  primary-dark: "oklch(0.68 0.12 28)"
+  primary-bright: "oklch(0.74 0.12 28)"
+  gold: "oklch(0.740 0.080 70)"
+  gold-hover: "oklch(0.800 0.080 70)"
+  gold-subtle: "oklch(0.950 0.010 70)"
+  gold-border: "oklch(0.850 0.020 70)"
+  page-bg: "oklch(1 0 0)"
+  ink: "oklch(0.141 0.015 30)"
+  muted-ink: "oklch(0.490 0.015 30)"
+  surface: "oklch(0.973 0.003 30)"
+  line: "oklch(0.890 0.003 30)"
+  code-fill: "oklch(0.970 0.003 30)"
 typography:
   body:
     fontFamily: "'Source Serif 4 Variable', Georgia, 'Times New Roman', serif"
@@ -73,66 +73,59 @@ components:
 
 Allizon.io is a personal writing site — a home for essays, reviews, and stray thoughts that lives outside any platform. The design treats the browser as a notebook: warm, unpretentious, and built around the words. Nothing shouts for attention because nothing needs to. The reading experience comes first; everything else earns its place.
 
-The system uses a restrained two-color accent system — Dusk Purple (#7a5fb5) for links, focus states, and interactive cues, with Warm Sage (#7a9b7c) as a secondary accent for decorative elements, progress indicators, and prose styling. The palette stays restrained around them: a true white page, subtle gray surfaces, and near-black ink. Warmth comes from the voice and the pacing, not from decorative flourishes.
+The system uses a restrained single-accent system — **Brick Red** (oklch(0.48 0.13 28)) for links, focus states, and interactive cues, with **Ochre Gold** (oklch(0.74 0.08 70)) as a quiet secondary accent for decorative elements, blockquotes, and progress indicators. The palette stays restrained around them: a true white page, subtle warm-tinted neutrals, and near-black ink. Warmth comes from the accent and the voice, not from the surface.
 
 The site explicitly rejects generic blog-template aesthetics, SaaS clichés (gradient text, hero metrics, numbered section markers), and anything that suggests a platform rather than a person. It should never feel like a Medium clone or a default theme.
 
 **Key Characteristics:**
 
 - Words-first: typography and whitespace create the reading rhythm
-- Two-color accent system applied with restraint: Dusk Purple (interaction) + Warm Sage (decoration)
+- Single committed accent (Brick Red) with Ochre Gold as quiet secondary
 - Flat by default, with subtle shadow on interaction
 - Responsive without breakpoint proliferation — flex-wrap and clamp handle most cases
 - Dark mode that mirrors the light mode's structure through color alone
 
 ## 2. Colors: The Notebook Palette
 
-A restrained palette built around two complementary accents: Dusk Purple (warm, contemplative) for interaction, and Warm Sage (earthy, calm) for decoration and prose. The neutrals lean slightly cool to let both accents stand out without competing.
+A restrained palette built around one committed accent: Brick Red (warm, grounded, personal) for all interaction, with Ochre Gold as a quiet helper for decoration. The neutrals pull subtly toward the brand hue (30° on the OKLCH wheel) to make the whole page feel like it belongs to one person — not a template.
 
-### Primary
+### Primary Accent
 
-- **Dusk Purple** (#7a5fb5 / oklch(0.555 0.125 296.3)): The sole accent. Used for links, focus outlines, tag-pill hover borders, and interactive element accents. Never used for body text or large decorative areas.
-- **Dusk Purple Deep** (#6b51a1 / oklch(0.500 0.125 296.3)): Link hover and darker-interaction variant.
-- **Dusk Purple Light** (#a68de3 / oklch(0.700 0.125 296.3)): Dark-mode accent variant (maintained at same chroma and hue, higher lightness for contrast against dark bg).
-- **Dusk Purple Bright** (#b9a0f7 / oklch(0.761 0.125 296.3)): Dark-mode hover variant.
+- **Brick Red** (oklch(0.480 0.130 28)): The sole accent. Used for links, focus outlines, tag-pill hover borders, dates, and interactive element accents. Never used for body text or large decorative areas.
+- **Brick Red Deep** (oklch(0.420 0.130 28)): Link hover and darker-interaction variant.
+- **Brick Red Light** (oklch(0.680 0.120 28)): Dark-mode accent variant (maintained at same chroma and hue, higher lightness for contrast against dark bg).
+- **Brick Red Bright** (oklch(0.740 0.120 28)): Dark-mode hover variant.
 
-### Secondary
+### Secondary Accent
 
-- **Warm Sage** (#7a9b7c / oklch(0.60 0.07 145)): Secondary accent. Used for progress bars, blockquote borders, `<mark>` highlights, decorative rules, and accent dots. Never used for links, focus states, or body text.
-- **Warm Sage Hover** (#8cac8e / oklch(0.68 0.07 145)): Slightly lighter sage for hover states on sage-accented elements.
-- **Warm Sage Subtle** (#ebf3ea / oklch(0.95 0.015 145)): Background tint for blockquotes, `<mark>` backgrounds, and subtle surface washes.
-- **Warm Sage Border** (#c5d8c5 / oklch(0.84 0.025 145)): Borders and dividers on sage-accented surfaces.
+- **Ochre Gold** (oklch(0.740 0.080 70)): Secondary accent. Used for progress bars, blockquote borders, `<mark>` highlights, decorative rules, and accent dots. Never used for links, focus states, or body text.
+- **Ochre Gold Hover** (oklch(0.800 0.080 70)): Slightly lighter gold for hover states.
+- **Ochre Gold Subtle** (oklch(0.950 0.010 70)): Background tint for blockquotes, `<mark>` backgrounds.
+- **Ochre Gold Border** (oklch(0.850 0.020 70)): Borders and dividers on gold-accented surfaces.
 
 ### Neutral — Light Mode
 
-- **Page** (#ffffff): Body background. True white, no tint.
-- **Ink** (#111827 / oklch(0.210 0.032 264.5)): Body text. Near-black for comfortable reading.
-- **Muted Ink** (#6b7280 / oklch(0.551 0.023 263.8)): Secondary text (dates, descriptions, nav links). Meets WCAG AA against page-bg (contrast ratio ~4.6:1).
-- **Surface** (#f9fafb / oklch(0.985 0.002 235.9)): Sidebar cards, meta grids, tag-pill backgrounds.
-- **Line** (#e5e7eb / oklch(0.928 0.006 260.7)): Borders, dividers, separators between posts.
-- **Code Fill** (#f3f4f6 / oklch(0.967 0.003 256.5)): Inline code and code-block background.
+- **Page** (oklch(1 0 0)): Body background. True white, no tint.
+- **Ink** (oklch(0.141 0.015 30)): Body text. Near-black with a warm lean for comfortable reading.
+- **Muted Ink** (oklch(0.490 0.015 30)): Secondary text (dates, descriptions, nav links). Meets WCAG AA.
+- **Surface** (oklch(0.973 0.003 30)): Sidebar cards, meta grids, tag-pill backgrounds. Barely-warm off-white.
+- **Line** (oklch(0.890 0.003 30)): Borders, dividers, separators between posts.
+- **Code Fill** (oklch(0.970 0.003 30)): Inline code and code-block background.
 
 ### Neutral — Dark Mode
 
-- **Page** (#0a0a0a): Body background. Near-black for reduced eye strain.
-- **Ink** (#e5e7eb): Body text.
-- **Muted Ink** (#9ca3af / oklch(0.714 0.019 260.4)): Secondary text. Meets WCAG AA against dark page bg.
-- **Surface** (#111827): Sidebar cards, meta grids, tag-pill backgrounds.
-- **Line** (#1f2937): Borders, dividers, separators.
-- **Code Fill** (#1f2937): Code backgrounds.
-
-### Secondary — Dark Mode
-
-- **Warm Sage** (#89a88b): Dark-mode sage accent for progress bars, decorative rules, and accent dots.
-- **Warm Sage Hover** (#9dbe9f): Dark-mode sage hover variant.
-- **Warm Sage Subtle** (#1a2318): Dark-mode background tint for blockquotes and marks.
-- **Warm Sage Border** (#293628): Dark-mode sage border color.
+- **Page** (oklch(0.09 0.008 28)): Warm near-black for reduced eye strain. Feels like a study at night, not a terminal.
+- **Ink** (oklch(0.86 0.005 28)): Warm off-white body text.
+- **Muted Ink** (oklch(0.55 0.01 28)): Secondary text. Meets WCAG AA against dark page bg.
+- **Surface** (oklch(0.14 0.008 28)): Sidebar cards, meta grids, tag-pill backgrounds.
+- **Line** (oklch(0.20 0.008 28)): Borders, dividers, separators.
+- **Code Fill** (oklch(0.14 0.008 28)): Code backgrounds.
 
 ### Named Rules
 
-**The Two-Accent Rule.** Dusk Purple is the primary accent for interaction (links, focus indicators, hover treatments). Warm Sage is the secondary accent for decoration and prose (progress bars, blockquotes, marks, decorative rules). The two have distinct roles and never compete for the same job. Dusk Purple occupies roughly 5–8% of any screen, Sage another 3–5%. The restraint is still the point — color earns its place.
+**The Single-Accent Rule.** Brick Red is the primary accent for interaction (links, focus indicators, hover treatments). Ochre Gold is the quiet helper for decoration (progress bars, blockquotes, marks, decorative rules — not interaction). The two have distinct roles and never compete for the same job. Brick Red occupies roughly 5–8% of any screen, Gold another 2–4%. Restraint is still the point — color earns its place.
 
-**The Untinted Page Rule.** The page background is pure white in light mode (#ffffff) and near-black in dark mode (#0a0a0a). No warm tint on the body bg. Warmth is carried by the accent color, typography voice, and content — not by a beige or paper-toned page.
+**The Untinted Page Rule.** The page background is pure white in light mode and warm near-black in dark mode. No beige, cream, or paper-tinted bg. Warmth is carried by the brick accent, the warm neutrals, and the voice — not by a tinted surface.
 
 ## 3. Typography
 
@@ -174,16 +167,16 @@ Subtle shadows appear only as a response to interaction — a hover or focus sta
 
 ### Links (Inline)
 
-- **Style:** Dusk Purple (`--color-accent`), no underline at rest.
+- **Style:** Brick Red (`--color-accent`), no underline at rest.
 - **Hover:** underlined, transitions in 0.15s.
-- **Focus:** 2px solid outline in Dusk Purple, offset 2px.
-- **Post title links:** Ink color at rest, transition to Dusk Purple on hover.
+- **Focus:** 2px solid outline in Brick Red, offset 2px.
+- **Post title links:** Ink color at rest, transition to Brick Red on hover.
 
 ### Tag Pills
 
 - **Shape:** Fully rounded (`border-radius: 999px`).
 - **Rest:** Surface background (`--color-surface`), Line border (`--color-border`), Muted Ink text.
-- **Hover:** Border and text transition to Dusk Purple in 0.15s.
+- **Hover:** Border and text transition to Brick Red in 0.15s.
 - **Spacing:** `0.2rem 0.55rem` internal padding, `0.4rem` gap between pills. `0.75rem` font size.
 
 ### Sidebar Cards
@@ -205,37 +198,37 @@ Subtle shadows appear only as a response to interaction — a hover or focus sta
 
 - **Style:** Border-only button (1px solid `--color-border`), transparent background, Muted Ink icon.
 - **Hover:** Border and icon transition to Ink color.
-- **Focus:** 2px solid Dusk Purple outline, offset 2px.
+- **Focus:** 2px solid Brick Red outline, offset 2px.
 - **Shape:** 6px border radius, `0.3rem 0.6rem` padding.
 
 ### External Link Buttons (Pixar pages)
 
 - **Style:** Border-only (`1px solid --color-border`), Muted Ink text, 4px border radius.
-- **Hover:** Border and text transition to Dusk Purple.
+- **Hover:** Border and text transition to Brick Red.
 - **Spacing:** `0.3rem 0.75rem` padding.
 
 ### Progress Bar (Pixar Sidebar Card)
 
-- **Track:** 4px tall, rounded (`border-radius: 2px`), `--color-sage-border` background.
-- **Fill:** Warm Sage (`--color-sage`), scales from left via `transform: scaleX()`.
+- **Track:** 4px tall, rounded (`border-radius: 2px`), `--color-gold-border` background.
+- **Fill:** Ochre Gold (`--color-gold`), scales from left via `transform: scaleX()`.
 - **Label:** Muted Ink, 0.8rem.
 
 ### Blockquotes
 
-- **Border:** 3px left border in Warm Sage (`--color-sage`).
-- **Background:** Warm Sage Subtle (`--color-sage-subtle`), `border-radius: 0 6px 6px 0`.
+- **Border:** 3px left border in Ochre Gold (`--color-gold`).
+- **Background:** Ochre Gold Subtle (`--color-gold-subtle`), `border-radius: 0 6px 6px 0`.
 - **Padding:** `0.75rem 1.25rem`.
 
 ### Inline Highlights (`<mark>`)
 
-- **Background:** Warm Sage Subtle (`--color-sage-subtle`).
+- **Background:** Ochre Gold Subtle (`--color-gold-subtle`).
 - **Text:** Inherits body color (`--color-text`).
 - **Rounding:** 3px `border-radius`, `0.1em 0.25em` padding.
 
 ### Post Cards (Home Page / Archive)
 
 - **Style:** Bottom border separator (1px solid `--color-border`) between cards. No card container — the border is the divider.
-- **Title:** 1.15rem, weight 600, Ink color. Transitions to Dusk Purple on hover.
+- **Title:** 1.15rem, weight 600, Ink color. Transitions to Brick Red on hover.
 - **Description:** 0.925rem, Muted Ink. No hover effect.
 - **Meta row:** Date (Muted Ink, small) + tag pills, `0.75rem` gap.
 
@@ -243,9 +236,9 @@ Subtle shadows appear only as a response to interaction — a hover or focus sta
 
 ### Do
 
-- **Do** use Dusk Purple (#7a5fb5) as the primary accent for links, focus states, and hover treatments.
-- **Do** use Warm Sage (#7a9b7c) as the secondary accent for decorative elements, progress bars, blockquotes, and `<mark>` highlights.
-- **Do** keep the page background pure white (#ffffff) in light mode and near-black (#0a0a0a) in dark mode.
+- **Do** use Brick Red (oklch(0.48 0.13 28)) as the primary accent for links, focus states, and hover treatments.
+- **Do** use Ochre Gold (oklch(0.74 0.08 70)) as the secondary accent for decorative elements, progress bars, blockquotes, and `<mark>` highlights.
+- **Do** keep the page background pure white (oklch(1 0 0)) in light mode and warm near-black (oklch(0.09 0.008 28)) in dark mode.
 - **Do** use Source Serif 4 for body text and Source Sans 3 for headings — a two-family system with deliberate contrast.
 - **Do** use subtle shadows (4px blur, 8% opacity black) only on interactive hover/focus states.
 - **Do** let the writing set the rhythm. Typography and whitespace guide the reader; decoration doesn't.
@@ -253,7 +246,7 @@ Subtle shadows appear only as a response to interaction — a hover or focus sta
 
 ### Don't
 
-- **Don't** use Sage where Purple belongs (links, focus states, primary CTAs). Don't use Purple where Sage belongs (blockquotes, marks, progress bars). Roles are distinct.
+- **Don't** use Gold where Brick Red belongs (links, focus states, primary CTAs). Don't use Brick Red where Gold belongs (blockquotes, marks, progress bars). Roles are distinct.
 - **Don't** use gradient text, glassmorphism, or decorative blur effects.
 - **Don't** add drop shadows to elements at rest. Shadows indicate interactivity.
 - **Don't** use stock blog-template patterns: no numbered section markers ("01 / 02 / 03"), no tiny uppercase tracked kickers above every section heading, no big-stat hero metrics.
