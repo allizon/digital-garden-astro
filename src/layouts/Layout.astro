@@ -1,13 +1,15 @@
 ---
 import Nav from '@/components/Nav.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
+  breadcrumbs?: { label: string; href?: string }[];
 }
 
-const { title, description = 'Writing by Allison' } = Astro.props;
+const { title, description = 'Writing by Allison', breadcrumbs } = Astro.props;
 const pageTitle = title ? `${title} — allizon.io` : 'allizon.io';
 ---
 
@@ -33,7 +35,8 @@ const pageTitle = title ? `${title} — allizon.io` : 'allizon.io';
   </head>
   <body>
     <Nav />
-    <main class="page-container" style="flex: 1; padding-top: 2rem; padding-bottom: 4rem;">
+    <main class="page-container" style={{ flex: 1, paddingTop: breadcrumbs ? '0.7rem' : '2rem', paddingBottom: '4rem' }}>
+      {breadcrumbs && <Breadcrumbs segments={breadcrumbs} />}
       <slot />
     </main>
     <footer style="border-top: 1px solid var(--color-accent-border); padding: 1.5rem 0; background: var(--color-surface-tint);">

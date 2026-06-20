@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
 
 interface Props {
   title: string;
@@ -27,10 +28,7 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
   <div class="pixar-page">
     <div class="entry-header-area">
       <div class="header-inner">
-        <nav class="breadcrumbs">
-          <a href="/">Home</a> / <a href="/pixar">The Pixar Project</a> / <span>{title}</span>
-        </nav>
-
+        <Breadcrumbs segments={[{ label: 'The Pixar Project', href: '/pixar' }, { label: title }]} />
         <header class="entry-header">
           <p class="release-year">{releaseYear}</p>
           <h1>{title}</h1>
@@ -125,17 +123,6 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
     margin: 0 auto;
     padding: 0 var(--space-page);
   }
-
-  .breadcrumbs {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .breadcrumbs a { color: var(--color-text-muted); }
-  .breadcrumbs a:hover { color: var(--color-accent); }
 
   .pixar-page {
     padding-top: 450px; /* fallback; JS measures and sets exact value */

@@ -17,9 +17,14 @@ const formattedDate = date.toLocaleDateString('en-US', {
   day: 'numeric',
   timeZone: 'UTC',
 });
+
+const breadcrumbs = [
+  { label: 'Posts', href: '/archive' },
+  { label: title },
+];
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
   <article class="prose">
     <header class="post-header">
       <time datetime={date.toISOString()} class="text-muted text-small">{formattedDate}</time>

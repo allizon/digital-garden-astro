@@ -1,29 +1,49 @@
 ---
-interface Props {
-	body?: string;
+interface Segment {
+  label: string;
+  href?: string;
 }
 
-// Don't actually need this, it's what `<slot />` is for
-const { body } = Astro.props;
+interface Props {
+  segments: Segment[];
+}
+
+const { segments } = Astro.props;
+const allSegments: Segment[] = [{ label: 'Home', href: '/' }, ...segments];
 ---
 
-<div class="breadcrumbs">
-  <slot />
-</div>
+<nav class="breadcrumbs">
+  {allSegments.map((seg, i) => (
+    i < allSegments.length - 1
+      ? <><a href={seg.href!}>{seg.label}</a> <span class="sep">/</span> </>
+      : <span class="current">{seg.label}</span>
+  ))}
+</nav>
 
 <style>
   .breadcrumbs {
-    color: white;
-    padding-block: 0.5rem;
-    padding-inline: 1rem;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
 
-    a {
-      color: var(--color-accent);
+  .breadcrumbs a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
 
-      &:hover {
-        color: var(--color-accent-hover);
-      }
-    }
+  .breadcrumbs a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .sep {
+    margin: 0 0.35rem;
+  }
+
+  .current {
+    color: var(--color-text);
   }
 </style>
