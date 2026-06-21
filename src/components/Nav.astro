@@ -7,7 +7,7 @@ const isActive = (href: string) => {
   return pathname === href || pathname.startsWith(href + '/');
 };
 const navLinks = [
-  { href: '/posts', label: 'Posts' },
+  { href: '/posts', label: 'Archive' },
   { href: '/tags', label: 'Tags' },
   { href: '/pixar', label: 'Pixar' },
   { href: '/about', label: 'About' },
@@ -29,11 +29,13 @@ const navLinks = [
 
 <style>
   header {
+    border-top: 5px solid var(--color-accent);
     border-bottom: 1px solid var(--color-border);
     position: sticky;
     top: 0;
     background: var(--color-bg);
     z-index: 10;
+    will-change: transform;
   }
 
   .nav-inner {
@@ -46,27 +48,33 @@ const navLinks = [
   }
 
   .site-name {
-    font-weight: 600;
-    color: var(--color-accent);
-    font-size: 1rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.015em;
+    color: var(--color-text);
     text-decoration: none;
+    line-height: 1;
   }
 
-  .site-name:hover { text-decoration: none; color: var(--color-accent-hover); }
+  .site-name:hover { text-decoration: none; }
 
   nav {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 
-nav a {
+  nav a {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--color-text-muted);
-    font-size: 0.9rem;
-    font-family: 'Source Sans 3 Variable', system-ui, -apple-system, sans-serif;
     text-decoration: none;
     transition: color 0.15s;
-}
+  }
 
   nav a:hover {
     color: var(--color-text);
@@ -75,10 +83,10 @@ nav a {
 
   nav a[aria-current="page"] {
     color: var(--color-accent);
-    font-weight: 600;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     .nav-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    nav { flex-wrap: wrap; gap: 0.75rem 1rem; }
   }
 </style>

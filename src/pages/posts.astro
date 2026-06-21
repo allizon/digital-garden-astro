@@ -20,7 +20,7 @@ const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
   <h1>Posts</h1>
   {years.map(year => (
     <section>
-      <h2 class="year-heading"><span class="gold-dot"></span>{year}</h2>
+      <h2 class="year-heading">{year}</h2>
       <ul class="post-list">
         {byYear[year].map(post => {
           const d = post.data.date;
@@ -39,14 +39,13 @@ const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 </Layout>
 
 <style>
-  h1 { margin-top: 0; }
-
   .year-heading {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-text-muted);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    color: var(--color-text-accent);
     margin: 2rem 0 0.75rem;
     border-bottom: 1px solid var(--color-border);
     padding-bottom: 0.4rem;
@@ -70,12 +69,19 @@ const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
   .post-row:last-child { border-bottom: none; }
 
   .row-date {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-accent);
     min-width: 5rem;
     flex-shrink: 0;
   }
 
   .row-title {
     color: var(--color-text);
+    font-family: var(--font-body);
     font-size: 0.95rem;
     text-decoration: none;
     flex: 1;

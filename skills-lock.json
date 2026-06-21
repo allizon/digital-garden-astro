@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "astro-expert": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "computedHash": "cd73bb072595efb67b20c237bec2c339023505b6c6af77908feae553939901e3"
+    },
     "impeccable": {
       "source": "pbakaus/impeccable",
       "sourceType": "github",

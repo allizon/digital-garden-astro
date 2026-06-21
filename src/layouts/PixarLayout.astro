@@ -25,43 +25,43 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
 ---
 
 <Layout title={title}>
-  <div class="pixar-page">
-    <div class="entry-header-area">
-      <div class="header-inner">
-        <Breadcrumbs segments={[{ label: 'The Pixar Project', href: '/pixar' }, { label: title }]} />
-        <header class="entry-header">
-          <p class="release-year">{releaseYear}</p>
-          <h1>{title}</h1>
-          {subhead && <p class="subhead">{subhead}</p>}
+  <div slot="overlay" class="entry-header-area">
+    <div class="header-inner">
+      <Breadcrumbs segments={[{ label: 'The Pixar Project', href: '/pixar' }, { label: title }]} />
+      <header class="entry-header">
+        <p class="release-year">{releaseYear}</p>
+        <h1>{title}</h1>
+        {subhead && <p class="subhead">{subhead}</p>}
 
-          <div class="meta-grid">
-            <div class="meta-item">
-              <span class="meta-label">Published</span>
-              <span class="meta-value">{formattedDate}</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Watched</span>
-              <span class="meta-value">{watchedDate}</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Emotional Rating</span>
-              <span class="meta-value">{'★'.repeat(emotional_rating)}{'☆'.repeat(5 - emotional_rating)}</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Actual Rating</span>
-              <span class="meta-value">{'★'.repeat(actual_rating)}{'☆'.repeat(5 - actual_rating)}</span>
-            </div>
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Published</span>
+            <span class="meta-value">{formattedDate}</span>
           </div>
+          <div class="meta-item">
+            <span class="meta-label">Watched</span>
+            <span class="meta-value">{watchedDate}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Emotional Rating</span>
+            <span class="meta-value">{'★'.repeat(emotional_rating)}{'☆'.repeat(5 - emotional_rating)}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Actual Rating</span>
+            <span class="meta-value">{'★'.repeat(actual_rating)}{'☆'.repeat(5 - actual_rating)}</span>
+          </div>
+        </div>
 
-          <div class="external-links">
-            {imdb && <a href={imdb} target="_blank" rel="noopener noreferrer">IMDb</a>}
-            {tmdb && <a href={tmdb} target="_blank" rel="noopener noreferrer">TMDB</a>}
-            {rotten_tomatoes && <a href={rotten_tomatoes} target="_blank" rel="noopener noreferrer">Rotten Tomatoes</a>}
-          </div>
-        </header>
-      </div>
+        <div class="external-links">
+          {imdb && <a href={imdb} target="_blank" rel="noopener noreferrer">IMDb</a>}
+          {tmdb && <a href={tmdb} target="_blank" rel="noopener noreferrer">TMDB</a>}
+          {rotten_tomatoes && <a href={rotten_tomatoes} target="_blank" rel="noopener noreferrer">Rotten Tomatoes</a>}
+        </div>
+      </header>
     </div>
+  </div>
 
+  <div class="pixar-page">
     <article class="pixar-entry">
       <div class="entry-body">
         <div class="entry-main">
@@ -119,7 +119,7 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
 
 <style>
   .pixar-entry {
-    max-width: var(--width-wide);
+    max-width: var(--width-max);
     margin: 0 auto;
     padding: 0 var(--space-page);
   }
@@ -139,10 +139,10 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
   }
 
   .header-inner {
-    max-width: var(--width-wide);
+    max-width: var(--width-max);
     margin: 0 auto;
     padding: 0 var(--space-page);
-    padding-top: 4.25rem; /* push content below the ~57px sticky nav */
+    padding-top: 4.575rem; /* match regular pages: nav-bottom + 0.7rem */
   }
 
   .entry-body {
@@ -162,7 +162,7 @@ const watchedDate = watched.toLocaleDateString('en-US', { year: 'numeric', month
     position: sticky;
     top: var(--sidebar-top, 474px); /* JS sets --sidebar-top on <html> */
     align-self: start;
-    will-change: transform; /* compositor layer — eliminates sub-pixel jitter on scroll */
+    will-change: transform; /* compositor layer — prevents sub-pixel jitter on scroll */
   }
 
   .sidebar-card {

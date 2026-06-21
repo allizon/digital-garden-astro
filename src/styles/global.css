@@ -1,72 +1,57 @@
-/* ── Fonts ─────────────────────────────────────────────────── */
-@import '@fontsource-variable/source-serif-4';
-@import '@fontsource-variable/source-sans-3';
+/* ── Sundial Design System ─────────────────────────────────── */
 
 /* ── Design tokens ─────────────────────────────────────────── */
 :root {
-  /* Light mode — Brick & Ink palette */
-  --color-bg: oklch(1 0 0);
-  --color-text: oklch(0.141 0.015 30);
-  --color-text-muted: oklch(0.490 0.015 30);
-  --color-accent: oklch(0.480 0.130 28);
-  --color-accent-hover: oklch(0.420 0.130 28);
-  --color-border: oklch(0.890 0.003 30);
-  --color-surface: oklch(0.973 0.003 30);
-  --color-surface-tint: oklch(0.945 0.008 28);
-  --color-code-bg: oklch(0.970 0.003 30);
-  --color-accent-subtle: oklch(0.930 0.012 28);
-  --color-accent-border: oklch(0.830 0.015 28);
-  --color-gold: oklch(0.740 0.080 70);
-  --color-gold-hover: oklch(0.800 0.080 70);
-  --color-gold-subtle: oklch(0.950 0.010 70);
-  --color-gold-border: oklch(0.850 0.020 70);
+  /* Light mode */
+  --color-bg: oklch(0.985 0.006 78);        /* warm off-white #faf9f7 */
+  --color-surface: oklch(0.96 0.014 40);     /* #f5ede8 */
+  --color-accent: oklch(0.50 0.22 28);       /* #c0390a rust */
+  --color-text: oklch(0.12 0.018 35);        /* #1a1410 headings/logo */
+  --color-text-body: oklch(0.22 0.018 44);   /* #2d2420 article body */
+  --color-text-muted: oklch(0.50 0.012 60);  /* #787068 nav, dates, excerpts */
+  --color-text-accent: oklch(0.54 0.012 60); /* #7a7268 dateline uppercase */
+  --color-border: oklch(0.90 0.008 70);      /* #e5e0d8 dividers */
+  --color-border-sidebar: oklch(0.88 0.010 62); /* #e0d8d0 progress track */
+  --footer-bg: #fbeeeb;
+  --footer-border: #c20000;
 
-  --font-serif: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Source Sans 3 Variable', system-ui, -apple-system, sans-serif;
-  /* intentional: use reader's installed monospace font */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Lora', Georgia, serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
 
-  --width-content: 680px;
-  --width-wide: 1125px;
-
-  --space-page: clamp(1rem, 5vw, 2rem);
+  --width-max: 1220px;
+  --width-gap: 56px;
+  --width-sidebar: 292px;
+  --space-page: 52px;
 }
 
 [data-theme="dark"] {
   --color-bg: oklch(0.09 0.008 28);
-  --color-text: oklch(0.86 0.005 28);
-  --color-text-muted: oklch(0.55 0.01 28);
-  --color-accent: oklch(0.68 0.12 28);
-  --color-accent-hover: oklch(0.74 0.12 28);
-  --color-border: oklch(0.20 0.008 28);
   --color-surface: oklch(0.14 0.008 28);
-  --color-surface-tint: oklch(0.17 0.010 28);
-  --color-code-bg: oklch(0.14 0.008 28);
-  --color-accent-subtle: oklch(0.18 0.015 28);
-  --color-accent-border: oklch(0.24 0.015 28);
-  --color-gold: oklch(0.78 0.075 70);
-  --color-gold-hover: oklch(0.84 0.075 70);
-  --color-gold-subtle: oklch(0.16 0.010 70);
-  --color-gold-border: oklch(0.22 0.012 70);
+  --color-accent: oklch(0.66 0.18 28);
+  --color-text: oklch(0.86 0.005 28);
+  --color-text-body: oklch(0.80 0.005 28);
+  --color-text-muted: oklch(0.55 0.01 28);
+  --color-text-accent: oklch(0.55 0.01 28);
+  --color-border: oklch(0.20 0.008 28);
+  --color-border-sidebar: oklch(0.22 0.008 28);
+  --footer-bg: oklch(0.12 0.01 28);
+  --footer-border: oklch(0.50 0.18 28);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --color-bg: oklch(0.09 0.008 28);
-    --color-text: oklch(0.86 0.005 28);
-    --color-text-muted: oklch(0.55 0.01 28);
-    --color-accent: oklch(0.68 0.12 28);
-    --color-accent-hover: oklch(0.74 0.12 28);
-    --color-border: oklch(0.20 0.008 28);
     --color-surface: oklch(0.14 0.008 28);
-    --color-surface-tint: oklch(0.17 0.010 28);
-    --color-code-bg: oklch(0.14 0.008 28);
-    --color-accent-subtle: oklch(0.18 0.015 28);
-    --color-accent-border: oklch(0.24 0.015 28);
-    --color-gold: oklch(0.78 0.075 70);
-    --color-gold-hover: oklch(0.84 0.075 70);
-    --color-gold-subtle: oklch(0.16 0.010 70);
-    --color-gold-border: oklch(0.22 0.012 70);
+    --color-accent: oklch(0.66 0.18 28);
+    --color-text: oklch(0.86 0.005 28);
+    --color-text-body: oklch(0.80 0.005 28);
+    --color-text-muted: oklch(0.55 0.01 28);
+    --color-text-accent: oklch(0.55 0.01 28);
+    --color-border: oklch(0.20 0.008 28);
+    --color-border-sidebar: oklch(0.22 0.008 28);
+    --footer-bg: oklch(0.12 0.01 28);
+    --footer-border: oklch(0.50 0.18 28);
   }
 }
 
@@ -74,7 +59,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
-  font-family: var(--font-serif);
+  font-family: var(--font-body);
   font-size: 100%;
   background: var(--color-bg);
   color: var(--color-text);
@@ -92,18 +77,18 @@ body {
 img { max-width: 100%; display: block; }
 
 /* ── Typography ─────────────────────────────────────────────── */
-h1, h2, h3, h4 {
-  font-family: var(--font-sans);
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
   line-height: 1.2;
-  font-weight: 650;
+  font-weight: 800;
   margin: 1.5em 0 0.5em;
   text-wrap: balance;
 }
 
-h1 { font-size: 2rem; letter-spacing: -0.02em; }
-h2 { font-size: 1.45rem; }
-h3 { font-size: 1.15rem; }
-h4 { font-size: 1rem; }
+h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.1rem; }
 
 p { line-height: 1.75; margin: 0 0 1.25em; }
 
@@ -112,20 +97,20 @@ a {
   text-decoration: none;
 }
 
-a:hover { color: var(--color-accent-hover); text-decoration: underline; }
+a:hover { text-decoration: underline; }
 
 a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
 
 code {
   font-family: var(--font-mono);
   font-size: 0.875em;
-  background: var(--color-code-bg);
+  background: var(--color-surface);
   padding: 0.15em 0.35em;
   border-radius: 3px;
 }
 
 pre {
-  background: var(--color-code-bg);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 1rem 1.25rem;
@@ -146,21 +131,28 @@ hr {
   margin: 2.5rem 0;
 }
 
-hr.accent {
-  border-top-color: var(--color-accent-border);
-}
-
-/* ── Utilities ──────────────────────────────────────────────── */
+/* ── Page layout ─────────────────────────────────────────────── */
 .page-container {
-  max-width: var(--width-wide);
+  max-width: var(--width-max);
   margin: 0 auto;
   padding: 0 var(--space-page);
   width: 100%;
 }
 
+/* ── Prose / reading content ──────────────────────────────────── */
 .prose {
-  max-width: var(--width-content);
-  margin: 0 auto;
+  max-width: 640px;
+  margin: 0;
+}
+
+.prose p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.78;
+  max-width: 640px;
+  margin-bottom: 26px;
+  text-wrap: pretty;
+  color: var(--color-text-body);
 }
 
 .prose ul {
@@ -172,51 +164,175 @@ hr.accent {
   padding-bottom: .5em;
 }
 
-.text-muted { color: var(--color-text-muted); }
-.text-small { font-size: 0.875rem; }
-.text-accent { color: var(--color-accent); }
-.text-gold { color: var(--color-gold); }
-.surface-tint { background: var(--color-surface-tint); }
-.border-accent { border-color: var(--color-accent-border); }
-
-/* ── Blockquotes ─────────────────────────────────────────── */
+/* ── Blockquotes (pull quotes) ─────────────────────────────── */
 blockquote,
 .prose blockquote {
   margin: 1.5em 0;
-  padding: 0.75rem 1.25rem;
-  border-left: 3px solid var(--color-gold);
-  background: var(--color-gold-subtle);
-  border-radius: 0 6px 6px 0;
-  font-style: normal;
-  color: var(--color-text);
+  padding: 4px 0 4px 28px;
+  border-left: 4px solid var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 21px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--color-text-body);
+  max-width: 580px;
 }
 
 .prose blockquote p:last-child,
 blockquote p:last-child { margin-bottom: 0; }
 
+.blockquote p, .prose blockquote p {
+  font-size: 21px;
+  line-height: 1.55;
+}
+
 /* ── Inline highlights ──────────────────────────────────── */
 mark {
-  background: var(--color-gold-subtle);
+  background: var(--color-surface);
   color: var(--color-text);
   padding: 0.1em 0.25em;
   border-radius: 3px;
 }
 
-/* ── Gold decorative dot ────────────────────────────────── */
-.gold-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-gold);
-  margin-right: 0.5rem;
-  vertical-align: middle;
+/* ── Utilities ──────────────────────────────────────────────── */
+.text-muted { color: var(--color-text-muted); }
+.text-small { font-size: 0.875rem; }
+.text-accent { color: var(--color-accent); }
+.text-label { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Gold accent rule ───────────────────────────────────── */
-hr.gold {
-  border: none;
-  border-top: 2px solid var(--color-gold);
-  width: 3rem;
-  margin: 1.5rem 0;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes barGrow {
+  from { width: 0; }
+  to   { width: var(--progress-width, 0); }
+}
+
+/* ── Animation classes ─────────────────────────────────── */
+.anim-hero       { animation: fadeUp 0.85s 0.10s ease both; }
+.anim-reading    { animation: fadeIn 0.60s 0.42s ease both; }
+.anim-post-1     { animation: fadeUp 0.50s 0.50s ease both; }
+.anim-post-2     { animation: fadeUp 0.50s 0.60s ease both; }
+.anim-post-3     { animation: fadeUp 0.50s 0.70s ease both; }
+.anim-widget-1   { animation: fadeIn 0.70s 0.56s ease both; }
+.anim-widget-2   { animation: fadeIn 0.70s 0.66s ease both; }
+.anim-bar        { animation: barGrow 1.40s 1.00s ease both; }
+
+.anim-back-link  { animation: fadeIn 0.50s 0.10s ease both; }
+.anim-header     { animation: fadeUp 0.80s 0.15s ease both; }
+.anim-body       { animation: fadeUp 0.60s 0.30s ease both; }
+.anim-sidebar    { animation: fadeIn 0.70s 0.40s ease both; }
+
+/* ── Footer (Sundial) ────────────────────────────────────── */
+.site-footer {
+  border-top: 2px solid var(--footer-border);
+  background: var(--footer-bg);
+  height: 4rem;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+}
+
+.footer-italic {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--color-text);
+}
+
+/* ── Sidebar widget (Sundial) ────────────────────────────── */
+.sidebar-card {
+  background: var(--color-surface);
+  border-radius: 2px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+
+.sidebar-card-pixar {
+  border-top: 4px solid var(--color-accent);
+}
+
+.sidebar-card-tags {
+  border-top: 4px solid var(--color-text);
+}
+
+.sidebar-card h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin: 0 0 0.75rem;
+}
+
+.sidebar-card-pixar h3 {
+  color: var(--color-accent);
+}
+
+.sidebar-card-tags h3,
+.sidebar-card-latest h3 {
+  color: var(--color-text);
+}
+
+.sidebar-card p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.52;
+  margin: 0 0 0.5rem;
+}
+
+.sidebar-card .progress-track {
+  height: 3px;
+  background: var(--color-border-sidebar);
+  border-radius: 2px;
+  margin: 0.6rem 0 0.4rem;
+  overflow: hidden;
+}
+
+.sidebar-card .progress-fill {
+  height: 100%;
+  width: var(--progress-width, 3.7%);
+  background: var(--color-accent);
+  border-radius: 2px;
+  transform-origin: left;
+}
+
+.sidebar-card .progress-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+.sidebar-card .sidebar-link {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--color-accent);
+  display: inline-block;
+  margin-top: 0.5rem;
 }

@@ -10,7 +10,7 @@ const posts = defineCollection({
     description: z.string(),
     tags: z.array(z.string()),
     draft: z.boolean().optional().default(false),
-  }),
+  }) as any,
 });
 
 const pixar = defineCollection({
@@ -29,7 +29,7 @@ const pixar = defineCollection({
     image: z.string().optional(),
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),
-  }),
+  }) as any,
 });
 
 export const collections = { posts, pixar };

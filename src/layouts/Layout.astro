@@ -23,6 +23,9 @@ const pageTitle = title ? `${title} — allizon.io` : 'allizon.io';
     <link rel="alternate" type="application/rss+xml" title="allizon.io" href="/rss.xml" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
     <script is:inline>
       // Apply saved theme before paint to prevent flash
       (function () {
@@ -35,14 +38,15 @@ const pageTitle = title ? `${title} — allizon.io` : 'allizon.io';
   </head>
   <body>
     <Nav />
+    <slot name="overlay" />
     <main class="page-container" style={{ flex: 1, paddingTop: breadcrumbs ? '0.7rem' : '2rem', paddingBottom: '4rem' }}>
       {breadcrumbs && <Breadcrumbs segments={breadcrumbs} />}
       <slot />
     </main>
-    <footer style="border-top: 1px solid var(--color-accent-border); padding: 1.5rem 0; background: var(--color-surface-tint);">
-      <div class="page-container" style="display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; color: var(--color-text-muted);">
-        <span style="color: var(--color-accent); font-weight: 600;">allizon.io</span>
-        <a href="/rss.xml" style="color: var(--color-accent);">RSS</a>
+    <footer class="site-footer">
+      <div class="page-container footer-inner">
+        <span class="footer-copy">&copy; allizon.io</span>
+        <span class="footer-italic">allizon.io</span>
       </div>
     </footer>
   </body>
